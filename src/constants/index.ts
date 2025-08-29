@@ -37,33 +37,33 @@ import {
 export const navLinks: TNavLink[] = [
   {
     id: "about",
-    title: "About",
+    title: "حول",
   },
   {
     id: "work",
-    title: "Work",
+    title: "أعمال",
   },
   {
     id: "contact",
-    title: "Contact",
+    title: "اتصال",
   },
 ];
 
 const services: TService[] = [
   {
-    title: "Web Developer",
+    title: "مطور ويب",
     icon: web,
   },
   {
-    title: "React Native Developer",
+    title: "مطور React Native",
     icon: mobile,
   },
   {
-    title: "Backend Developer",
+    title: "مطور back-end",
     icon: backend,
   },
   {
-    title: "Content Creator",
+    title: "منشئ محتوى",
     icon: creator,
   },
 ];
@@ -125,55 +125,55 @@ const technologies: TTechnology[] = [
 
 const experiences: TExperience[] = [
   {
-    title: "React.js Developer",
-    companyName: "Starbucks",
+    title: "مطور React.js",
+    companyName: "شركة تقنية",
     icon: starbucks,
     iconBg: "#383E56",
-    date: "March 2020 - April 2021",
+    date: "مارس 2020 - أبريل 2021",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "تطوير وصيانة تطبيقات الويب باستخدام React.js والتقنيات ذات الصلة.",
+      "التعاون مع فرق متعددة الوظائف بما في ذلك المصممين ومديري المنتجات والمطورين الآخرين لإنشاء منتجات عالية الجودة.",
+      "تنفيذ التصميم المتجاوب وضمان التوافق مع مختلف المتصفحات.",
+      "المشاركة في مراجعات الكود وتقديم ملاحظات بناءة للمطورين الآخرين.",
     ],
   },
   {
-    title: "React Native Developer",
-    companyName: "Tesla",
+    title: "مطور React Native",
+    companyName: "شركة تطبيقات",
     icon: tesla,
     iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
+    date: "يناير 2021 - فبراير 2022",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "تطوير وصيانة تطبيقات الهاتف المحمول باستخدام React Native.",
+      "العمل مع فرق التصميم والتطوير لإنشاء تجارب مستخدم مميزة.",
+      "تحسين أداء التطبيقات وضمان استقرارها.",
+      "المشاركة في تطوير استراتيجيات التطبيق وخطط النمو.",
     ],
   },
   {
-    title: "Web Developer",
-    companyName: "Shopify",
+    title: "مطور ويب",
+    companyName: "شركة تجارة إلكترونية",
     icon: shopify,
     iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
+    date: "يناير 2022 - يناير 2023",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "تطوير منصات التجارة الإلكترونية باستخدام أحدث التقنيات.",
+      "تحسين تجربة المستخدم وزيادة معدلات التحويل.",
+      "العمل مع أنظمة الدفع والشحن المختلفة.",
+      "ضمان أمان البيانات وحماية خصوصية المستخدمين.",
     ],
   },
   {
-    title: "Full stack Developer",
-    companyName: "Meta",
+    title: "مطور Full Stack",
+    companyName: "شركة تقنية متقدمة",
     icon: meta,
     iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
+    date: "يناير 2023 - الحالي",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "تطوير تطبيقات كاملة من الواجهة الأمامية إلى الخلفية.",
+      "استخدام تقنيات حديثة مثل Three.js لإنشاء تجارب تفاعلية ثلاثية الأبعاد.",
+      "إدارة قواعد البيانات وتحسين الأداء.",
+      "قيادة مشاريع تقنية معقدة وتوجيه فرق التطوير.",
     ],
   },
 ];
@@ -181,35 +181,35 @@ const experiences: TExperience[] = [
 const testimonials: TTestimonial[] = [
   {
     testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-    name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
+      "اعتقدت أنه من المستحيل إنشاء موقع ويب جميل مثل منتجنا، لكن عامر أثبت لي خطأي.",
+    name: "سارة أحمد",
+    designation: "مديرة مالية",
+    company: "شركة التقنية المتقدمة",
     image: "https://randomuser.me/api/portraits/women/4.jpg",
   },
   {
     testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
+      "لم أقابل مطور ويب يهتم حقاً بنجاح عملائه مثل عامر.",
+    name: "كريم محمد",
+    designation: "مدير العمليات",
+    company: "شركة الحلول الرقمية",
     image: "https://randomuser.me/api/portraits/men/5.jpg",
   },
   {
     testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
+      "بعد أن حسّن عامر موقعنا، زادت حركة المرور بنسبة 50%. لا نستطيع شكره بما فيه الكفاية!",
+    name: "فاطمة علي",
+    designation: "مديرة التسويق",
+    company: "شركة الإبداع",
     image: "https://randomuser.me/api/portraits/women/6.jpg",
   },
 ];
 
 const projects: TProject[] = [
   {
-    name: "Car Rent",
+    name: "تطبيق تأجير السيارات",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "منصة ويب تسمح للمستخدمين بالبحث وحجز وإدارة تأجير السيارات من مختلف المزودين، مما يوفر حلاً مريحاً وفعالاً لاحتياجات النقل.",
     tags: [
       {
         name: "react",
@@ -228,9 +228,9 @@ const projects: TProject[] = [
     sourceCodeLink: "https://github.com/",
   },
   {
-    name: "Job IT",
+    name: "منصة البحث عن الوظائف",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "تطبيق ويب يتيح للمستخدمين البحث عن فرص العمل وعرض نطاقات الرواتب المتوقعة للمناصب والعثور على الوظائف المتاحة بناءً على موقعهم الحالي.",
     tags: [
       {
         name: "react",
@@ -249,9 +249,9 @@ const projects: TProject[] = [
     sourceCodeLink: "https://github.com/",
   },
   {
-    name: "Trip Guide",
+    name: "دليل السفر",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "منصة شاملة لحجز السفر تسمح للمستخدمين بحجز الرحلات الجوية والفنادق وسيارات التأجير، وتقدم توصيات مدروسة للوجهات الشائعة.",
     tags: [
       {
         name: "nextjs",

@@ -24,6 +24,10 @@ type TConfig = {
         span: string;
         placeholder: string;
       };
+      mobile: {
+        span: string;
+        placeholder: string;
+      };
       message: {
         span: string;
         placeholder: string;
@@ -40,55 +44,58 @@ type TConfig = {
 
 export const config: TConfig = {
   html: {
-    title: "John Doe — 3D Portfolio",
-    fullName: "John Doe",
-    email: "johndoe@mail.com",
+    title: "عامر الودعاني",
+    fullName: "عامر الودعاني",
+    email: "ameralwadani@mail.com",
   },
   hero: {
-    name: "John Doe",
-    p: ["I develop 3D visuals, user", "interfaces and web applications"],
+    name: "عامر الودعاني",
+    p: ["مطور فول-ستاك ومؤسس تقني", "أحوّل فكرتك إلى موقع/تطبيق جاهز للإطلاق—سريع، آمن، وقابل للتوسع"],
   },
   contact: {
-    p: "Get in touch",
-    h2: "Contact.",
+    p: "تواصل معي",
+    h2: "اتصل بي.",
     form: {
       name: {
-        span: "Your Name",
-        placeholder: "What's your name?",
+        span: "اسمك",
+        placeholder: "ما اسمك؟",
       },
-      email: { span: "Your Email", placeholder: "What's your email?" },
+      email: { 
+        span: "بريدك الإلكتروني (اختياري)", 
+        placeholder: "ما بريدك الإلكتروني؟" 
+      },
+      mobile: { 
+        span: "رقم هاتفك (اختياري)", 
+        placeholder: "ما رقم هاتفك؟" 
+      },
       message: {
-        span: "Your Message",
-        placeholder: "What do you want to say?",
+        span: "رسالتك",
+        placeholder: "ماذا تريد أن تقول؟",
       },
     },
   },
   sections: {
     about: {
-      p: "Introduction",
-      h2: "Overview.",
-      content: `I'm a skilled software developer with experience in TypeScript and
-      JavaScript, and expertise in frameworks like React, Node.js, and
-      Three.js. I'm a quick learner and collaborate closely with clients to
-      create efficient, scalable, and user-friendly solutions that solve
-      real-world problems. Let's work together to bring your ideas to life!`,
+      p: "مقدمة",
+      h2: "نظرة عامة.",
+      content: `أنا مطوّر برمجيات فول-ستاك ومؤسّس تقني بخبرة قوية في TypeScript وJavaScript، ومتخصّص في React وNode.js وThree.js لبناء مواقع وتطبيقات حديثة وتجارب ثلاثية الأبعاد. أعمل بسرعة وبجودة عالية، وأتعاون عن قرب مع العملاء لتحويل الأفكار إلى حلول عملية آمنة، قابلة للتوسّع وسهلة الاستخدام تحلّ مشاكل حقيقية وتحقق أثرًا ملموسًا. لنحوّل فكرتك إلى منتج جاهز للإطلاق.`,
     },
     experience: {
-      p: "What I have done so far",
-      h2: "Work Experience.",
+      p: "ما قمت به حتى الآن",
+      h2: "الخبرة العملية.",
     },
     feedbacks: {
-      p: "What others say",
-      h2: "Testimonials.",
+      p: "ماذا يقول الآخرون",
+      h2: "التوصيات.",
     },
     works: {
-      p: "My work",
-      h2: "Projects.",
-      content: `Following projects showcases my skills and experience through
-    real-world examples of my work. Each project is briefly described with
-    links to code repositories and live demos in it. It reflects my
-    ability to solve complex problems, work with different technologies,
-    and manage projects effectively.`,
+      p: "أعمالي",
+      h2: "المشاريع.",
+      content: `المشاريع التالية تعرض مهاراتي وخبرتي من خلال
+    أمثلة حقيقية من عملي. كل مشروع موصوف بإيجاز مع
+    روابط لمستودعات الكود والعروض التوضيحية المباشرة.
+    يعكس قدرتي على حل المشاكل المعقدة والعمل مع
+    تقنيات مختلفة وإدارة المشاريع بفعالية.`,
     },
   },
 };

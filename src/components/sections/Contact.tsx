@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
 
 import { EarthCanvas } from "../canvas";
 import { SectionWrapper } from "../../hoc";
@@ -11,12 +10,6 @@ import { Header } from "../atoms/Header";
 const INITIAL_STATE = Object.fromEntries(
   Object.keys(config.contact.form).map((input) => [input, ""])
 );
-
-const emailjsConfig = {
-  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
-  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-  accessToken: import.meta.env.VITE_EMAILJS_ACCESS_TOKEN,
-};
 
 const Contact = () => {
   const formRef = useRef<React.LegacyRef<HTMLFormElement> | undefined>();
@@ -34,35 +27,32 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement> | undefined) => {
     if (e === undefined) return;
     e.preventDefault();
+    
     setLoading(true);
 
-    emailjs
-      .send(
-        emailjsConfig.serviceId,
-        emailjsConfig.templateId,
-        {
-          form_name: form.name,
-          to_name: config.html.fullName,
-          from_email: form.email,
-          to_email: config.html.email,
-          message: form.message,
-        },
-        emailjsConfig.accessToken
-      )
-      .then(
-        () => {
-          setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
+    // Create WhatsApp message
+    const whatsappMessage = `مرحباً عامر،
 
-          setForm(INITIAL_STATE);
-        },
-        (error) => {
-          setLoading(false);
+الاسم: ${form.name || 'غير محدد'}
+${form.email ? `البريد الإلكتروني: ${form.email}` : ''}
+${form.mobile ? `رقم الهاتف: ${form.mobile}` : ''}
 
-          console.log(error);
-          alert("Something went wrong.");
-        }
-      );
+الرسالة:
+${form.message || 'سيتم كتابة الرسالة لاحقاً'}`;
+
+    // Encode the message for URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    
+    // Create WhatsApp URL
+    const whatsappUrl = `https://wa.me/966599050500?text=${encodedMessage}`;
+    
+    // Open WhatsApp
+    window.open(whatsappUrl, '_blank');
+    
+    setLoading(false);
+    setForm(INITIAL_STATE);
+    
+    alert("تم فتح WhatsApp! يمكنك الآن إرسال الرسالة.");
   };
 
   return (
@@ -90,7 +80,7 @@ const Contact = () => {
               <label key={input} className="flex flex-col">
                 <span className="mb-4 font-medium text-white">{span}</span>
                 <Component
-                  type={input === "email" ? "email" : "text"}
+                  type={input === "email" ? "email" : input === "mobile" ? "tel" : "text"}
                   name={input}
                   value={form[`${input}`]}
                   onChange={handleChange}
@@ -105,7 +95,7 @@ const Contact = () => {
             type="submit"
             className="bg-tertiary shadow-primary w-fit rounded-xl px-8 py-3 font-bold text-white shadow-md outline-none"
           >
-            {loading ? "Sending..." : "Send"}
+            {loading ? "جاري الإرسال..." : "إرسال عبر WhatsApp"}
           </button>
         </form>
       </motion.div>
