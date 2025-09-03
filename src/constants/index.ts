@@ -32,6 +32,7 @@ import {
   jobit,
   tripguide,
   threejs,
+  amerProfile,
 } from "../assets";
 
 export const navLinks: TNavLink[] = [
@@ -63,8 +64,16 @@ const services: TService[] = [
     icon: backend,
   },
   {
-    title: "منشئ محتوى",
+    title: "مطور AR/VR",
     icon: creator,
+  },
+  {
+    title: "مطور ألعاب Unreal Engine",
+    icon: web,
+  },
+  {
+    title: "مصمم 3D Blender",
+    icon: mobile,
   },
 ];
 
@@ -121,59 +130,71 @@ const technologies: TTechnology[] = [
     name: "docker",
     icon: docker,
   },
+  {
+    name: "Unreal Engine",
+    icon: threejs, // Using threejs icon as placeholder
+  },
+  {
+    name: "Blender",
+    icon: figma, // Using figma icon as placeholder
+  },
+  {
+    name: "AR/VR",
+    icon: reactjs, // Using reactjs icon as placeholder
+  },
 ];
 
 const experiences: TExperience[] = [
   {
-    title: "مطور React.js",
-    companyName: "شركة تقنية",
+    title: "مطور AR/VR",
+    companyName: "شركة تقنية متقدمة",
     icon: starbucks,
     iconBg: "#383E56",
     date: "مارس 2020 - أبريل 2021",
     points: [
-      "تطوير وصيانة تطبيقات الويب باستخدام React.js والتقنيات ذات الصلة.",
-      "التعاون مع فرق متعددة الوظائف بما في ذلك المصممين ومديري المنتجات والمطورين الآخرين لإنشاء منتجات عالية الجودة.",
-      "تنفيذ التصميم المتجاوب وضمان التوافق مع مختلف المتصفحات.",
-      "المشاركة في مراجعات الكود وتقديم ملاحظات بناءة للمطورين الآخرين.",
+      "تطوير تطبيقات الواقع المعزز والافتراضي باستخدام أحدث التقنيات.",
+      "إنشاء تجارب تفاعلية غامرة للمستخدمين في بيئات AR/VR.",
+      "العمل مع أجهزة VR مثل Oculus و HTC Vive.",
+      "تحسين الأداء وضمان تجربة مستخدم سلسة في بيئات الواقع الافتراضي.",
     ],
   },
   {
-    title: "مطور React Native",
-    companyName: "شركة تطبيقات",
+    title: "مطور ألعاب Unreal Engine",
+    companyName: "استوديو ألعاب",
     icon: tesla,
     iconBg: "#E6DEDD",
     date: "يناير 2021 - فبراير 2022",
     points: [
-      "تطوير وصيانة تطبيقات الهاتف المحمول باستخدام React Native.",
-      "العمل مع فرق التصميم والتطوير لإنشاء تجارب مستخدم مميزة.",
-      "تحسين أداء التطبيقات وضمان استقرارها.",
-      "المشاركة في تطوير استراتيجيات التطبيق وخطط النمو.",
+      "تطوير ألعاب ثلاثية الأبعاد باستخدام Unreal Engine 5.",
+      "برمجة ميكانيكا اللعب وأنظمة التفاعل المعقدة.",
+      "تحسين الأداء والرسومات للعبة.",
+      "العمل مع فريق فني لدمج الأصول والرسومات.",
     ],
   },
   {
-    title: "مطور ويب",
-    companyName: "شركة تجارة إلكترونية",
+    title: "مصمم 3D Blender",
+    companyName: "استوديو تصميم",
     icon: shopify,
     iconBg: "#383E56",
     date: "يناير 2022 - يناير 2023",
     points: [
-      "تطوير منصات التجارة الإلكترونية باستخدام أحدث التقنيات.",
-      "تحسين تجربة المستخدم وزيادة معدلات التحويل.",
-      "العمل مع أنظمة الدفع والشحن المختلفة.",
-      "ضمان أمان البيانات وحماية خصوصية المستخدمين.",
+      "إنشاء نماذج ثلاثية الأبعاد عالية الجودة باستخدام Blender.",
+      "تصميم الشخصيات والبيئات للألعاب والتطبيقات.",
+      "إنتاج رسوم متحركة وحركات واقعية.",
+      "العمل مع محركات الألعاب لتصدير النماذج والرسوم المتحركة.",
     ],
   },
   {
-    title: "مطور Full Stack",
+    title: "مطور Full Stack & 3D",
     companyName: "شركة تقنية متقدمة",
     icon: meta,
     iconBg: "#E6DEDD",
     date: "يناير 2023 - الحالي",
     points: [
-      "تطوير تطبيقات كاملة من الواجهة الأمامية إلى الخلفية.",
-      "استخدام تقنيات حديثة مثل Three.js لإنشاء تجارب تفاعلية ثلاثية الأبعاد.",
-      "إدارة قواعد البيانات وتحسين الأداء.",
-      "قيادة مشاريع تقنية معقدة وتوجيه فرق التطوير.",
+      "تطوير تطبيقات ويب كاملة مع دمج تقنيات ثلاثية الأبعاد.",
+      "دمج AR/VR مع تطبيقات الويب الحديثة.",
+      "إنشاء تجارب تفاعلية غامرة باستخدام Three.js و WebXR.",
+      "قيادة مشاريع تقنية معقدة تجمع بين الويب والواقع الافتراضي.",
     ],
   },
 ];
@@ -271,4 +292,4 @@ const projects: TProject[] = [
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export { services, technologies, experiences, testimonials, projects, amerProfile };

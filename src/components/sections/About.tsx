@@ -2,7 +2,7 @@ import React from "react";
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 
-import { services } from "../../constants";
+import { services, amerProfile } from "../../constants";
 import { SectionWrapper } from "../../hoc";
 import { fadeIn } from "../../utils/motion";
 import { config } from "../../constants/config";
@@ -54,6 +54,24 @@ const About = () => {
       >
         {config.sections.about.content}
       </motion.p>
+
+      {/* Profile Image Section */}
+      <motion.div
+        variants={fadeIn("up", "spring", 0.5, 0.75)}
+        className="mt-16 flex justify-center"
+      >
+        <div className="relative">
+          <div className="green-pink-gradient rounded-full p-[2px]">
+            <div className="bg-tertiary rounded-full p-2">
+              <img
+                src={amerProfile}
+                alt="عامر الودعاني"
+                className="h-48 w-48 rounded-full object-cover shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
+      </motion.div>
 
       <div className="mt-20 flex flex-wrap gap-10 max-sm:justify-center">
         {services.map((service, index) => (
