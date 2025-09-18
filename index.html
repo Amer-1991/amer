@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/amer/">
     <title>عامر الودعاني | مطوّر تطبيقات ومواقع معتمد في السعودية</title>
     <!-- Primary SEO -->
     <meta name="description" content="عامر الودعاني — مطوّر فول-ستاك معتمد في السعودية. أقدّم خدمات برمجة المواقع والتطبيقات (iOS، Android، Web) وتصميم واجهات وتجارب ثلاثية الأبعاد. جاهز لمساعدتك في تنفيذ فكرتك بسرعة وجودة." />
@@ -71,21 +72,14 @@
   </head>
   <body>
     <script>
-      (function() {
-        var l = window.location;
-        if (!l.search) return;
-        // Support GitHub Pages SPA redirect format: "/<repo>/?/path~and~query#hash"
-        var isSpaRedirect = l.search.startsWith('?/') || (l.search[1] === '/');
-        if (!isSpaRedirect) return;
-        var search = l.search.replace(/^\?\//, '?');
-        var decoded = search.slice(1).split('&').map(function(s){return s.replace(/~and~/g,'&')}).join('?');
-        var segments = l.pathname.slice(1).split('/');
-        var baseSegmentsToKeep = 1; // keep "/amer"
-        var base = '/' + segments.slice(0, baseSegmentsToKeep).join('/');
-        if (base !== '/') base += '/';
-        var newPath = decoded.charAt(0) === '/' ? decoded.slice(1) : decoded;
-        window.history.replaceState(null, null, base + newPath + l.hash);
-      })();
+      (function(l) {
+        if (l.search && l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null, decoded + l.hash);
+        }
+      })(window.location);
     </script>
     <div id="root"></div>
   </body>
