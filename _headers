@@ -1,0 +1,21 @@
+/*
+  Link: <https://ameralwadani.com/>; rel="canonical"
+  Link: <https://ameralwadani.com/>; rel="alternate"; hreflang="ar"
+  Link: <https://ameralwadani.com/en>; rel="alternate"; hreflang="en"
+  Link: <https://ameralwadani.com/>; rel="alternate"; hreflang="x-default"
+
+/en*
+  Link: <https://ameralwadani.com/en>; rel="canonical"
+  Link: <https://ameralwadani.com/>; rel="alternate"; hreflang="ar"
+  Link: <https://ameralwadani.com/en>; rel="alternate"; hreflang="en"
+  Link: <https://ameralwadani.com/en>; rel="alternate"; hreflang="x-default"
+
+/blog/*
+  Link: <https://ameralwadani.com/blog/:splat>; rel="canonical"
+  Link: <https://ameralwadani.com/blog/:splat>; rel="alternate"; hreflang="ar"
+  Link: <https://ameralwadani.com/en/blog/:splat>; rel="alternate"; hreflang="en"
+
+/en/blog/*
+  Link: <https://ameralwadani.com/en/blog/:splat>; rel="canonical"
+  Link: <https://ameralwadani.com/blog/:splat>; rel="alternate"; hreflang="ar"
+  Link: <https://ameralwadani.com/en/blog/:splat>; rel="alternate"; hreflang="en"
