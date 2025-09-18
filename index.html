@@ -73,10 +73,18 @@
     <script>
       (function() {
         var l = window.location;
-        if (l.search && l.search.startsWith('?/')) {
-          var decoded = l.search.slice(2).split('&').map(function(s){return s.replace(/~and~/g,'&')}).join('?');
-          window.history.replaceState(null, null, l.pathname.replace(/\/index\.html$/, '') + decoded + l.hash);
-        }
+        if (!l.search) return;
+        // Support GitHub Pages SPA redirect format: "/<repo>/?/path~and~query#hash"
+        var isSpaRedirect = l.search.startsWith('?/') || (l.search[1] === '/');
+        if (!isSpaRedirect) return;
+        var search = l.search.replace(/^\?\//, '?');
+        var decoded = search.slice(1).split('&').map(function(s){return s.replace(/~and~/g,'&')}).join('?');
+        var segments = l.pathname.slice(1).split('/');
+        var baseSegmentsToKeep = 1; // keep "/amer"
+        var base = '/' + segments.slice(0, baseSegmentsToKeep).join('/');
+        if (base !== '/') base += '/';
+        var newPath = decoded.charAt(0) === '/' ? decoded.slice(1) : decoded;
+        window.history.replaceState(null, null, base + newPath + l.hash);
       })();
     </script>
     <div id="root"></div>
