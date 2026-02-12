@@ -228,67 +228,178 @@ const testimonials: TTestimonial[] = [
 
 const projects: TProject[] = [
   {
-    name: "تطبيق تأجير السيارات",
+    name: "هلا AI - المساعد الصوتي",
     description:
-      "منصة ويب تسمح للمستخدمين بالبحث وحجز وإدارة تأجير السيارات من مختلف المزودين، مما يوفر حلاً مريحاً وفعالاً لاحتياجات النقل.",
+      "منصة مساعد ذكاء اصطناعي متعددة المستأجرين مع صوت مباشر عبر LiveKit وتكامل Groq/OpenAI ودعم أدوات التجارة الإلكترونية لسلة وزد.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "green-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
+      { name: "python", color: "blue-text-gradient" },
+      { name: "fastapi", color: "green-text-gradient" },
+      { name: "ai", color: "pink-text-gradient" },
     ],
     image: carrent,
-    sourceCodeLink: "https://github.com/",
+    sourceCodeLink: "https://github.com/Amer-1991/HALAAI",
   },
   {
-    name: "منصة البحث عن الوظائف",
+    name: "هلا AI - موقع الشركة",
     description:
-      "تطبيق ويب يتيح للمستخدمين البحث عن فرص العمل وعرض نطاقات الرواتب المتوقعة للمناصب والعثور على الوظائف المتاحة بناءً على موقعهم الحالي.",
+      "صفحة تعريفية احترافية لشركة هلا AI، تعرض أربعة منتجات ذكاء اصطناعي للتجارة الإلكترونية والتعليم والأسرة والفرق التقنية.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
+      { name: "react", color: "blue-text-gradient" },
+      { name: "tailwind", color: "pink-text-gradient" },
     ],
     image: jobit,
-    sourceCodeLink: "https://github.com/",
+    sourceCodeLink: "https://github.com/Amer-1991/HalaiMainCompany",
   },
   {
-    name: "دليل السفر",
+    name: "توكن فاينانس",
     description:
-      "منصة شاملة لحجز السفر تسمح للمستخدمين بحجز الرحلات الجوية والفنادق وسيارات التأجير، وتقدم توصيات مدروسة للوجهات الشائعة.",
+      "منصة تمويل بلوكتشين متكاملة مع خادم NestJS وواجهة Next.js وعقود Solidity الذكية، تشمل إدارة التوكنات وتتبع المحافظ.",
     tags: [
-      {
-        name: "nextjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "supabase",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
+      { name: "nestjs", color: "blue-text-gradient" },
+      { name: "solidity", color: "pink-text-gradient" },
+      { name: "prisma", color: "green-text-gradient" },
     ],
     image: tripguide,
-    sourceCodeLink: "https://github.com/",
+    sourceCodeLink: "https://github.com/Amer-1991/tokenfinance",
+  },
+  {
+    name: "تريد كلون",
+    description:
+      "منصة تداول اجتماعي متكاملة مع نسخ الصفقات وإدارة المحافظ وبيانات السوق الحية وتتبع الأرباح والخسائر.",
+    tags: [
+      { name: "nextjs", color: "blue-text-gradient" },
+      { name: "prisma", color: "green-text-gradient" },
+    ],
+    image: carrent,
+    sourceCodeLink: "https://github.com/Amer-1991/tradeclone",
+  },
+  {
+    name: "مقاول",
+    description:
+      "منصة إدارة المقاولين والمناقصات مبنية بـ Next.js 15 وtRPC وPrisma، تشمل نشر المناقصات وإدارة العطاءات لقطاع البناء السعودي.",
+    tags: [
+      { name: "nextjs", color: "blue-text-gradient" },
+      { name: "prisma", color: "green-text-gradient" },
+    ],
+    image: jobit,
+    sourceCodeLink: "https://github.com/Amer-1991/muqawil",
+  },
+  {
+    name: "فكرة تحليل سعودي",
+    description:
+      "منصة تحليل جدوى المشاريع بالذكاء الاصطناعي لرواد الأعمال السعوديين، تنتج تقارير SWOT وتوقعات مالية مع تكامل ميسّر ومنشآت.",
+    tags: [
+      { name: "react", color: "blue-text-gradient" },
+      { name: "supabase", color: "green-text-gradient" },
+      { name: "ai", color: "pink-text-gradient" },
+    ],
+    image: tripguide,
+    sourceCodeLink: "https://github.com/Amer-1991/fikra-tahleel-saudi",
+  },
+  {
+    name: "رفيق التعلم السعودي",
+    description:
+      "منصة تعلم المنهج السعودي بالذكاء الاصطناعي مع تدريس ذكي وتوليد الدروس والنطق ومتابعة التقدم.",
+    tags: [
+      { name: "react", color: "blue-text-gradient" },
+      { name: "nodejs", color: "green-text-gradient" },
+      { name: "ai", color: "pink-text-gradient" },
+    ],
+    image: carrent,
+    sourceCodeLink: "https://github.com/Amer-1991/saudi-learn-pal",
+  },
+  {
+    name: "ديف فلو إنسايت",
+    description:
+      "منصة إنتاجية المطورين بالذكاء الاصطناعي تجمع بين تحليل الكود وتتبع أداء الفريق وتحسين سير العمل مع واجهة ثنائية اللغة.",
+    tags: [
+      { name: "nestjs", color: "blue-text-gradient" },
+      { name: "prisma", color: "green-text-gradient" },
+      { name: "ai", color: "pink-text-gradient" },
+    ],
+    image: jobit,
+    sourceCodeLink: "https://github.com/Amer-1991/devflow-insight",
+  },
+  {
+    name: "فن فيست",
+    description:
+      "منصة أتمتة ذكية تتكامل مع بحر، سوق العمل الحر السعودي، مع توليد عروض بالذكاء الاصطناعي واكتشاف المشاريع التلقائي.",
+    tags: [
+      { name: "python", color: "blue-text-gradient" },
+      { name: "fastapi", color: "green-text-gradient" },
+    ],
+    image: tripguide,
+    sourceCodeLink: "https://github.com/Amer-1991/finvest",
+  },
+  {
+    name: "الوالد الذكي",
+    description:
+      "مساعد مراقبة ذكي بالكاميرات يستخدم YOLO والتعرف على الوجوه مع نموذج Groq لتصنيف الأحداث ونصائح تربوية بالعربية.",
+    tags: [
+      { name: "python", color: "blue-text-gradient" },
+      { name: "ai", color: "pink-text-gradient" },
+    ],
+    image: carrent,
+    sourceCodeLink: "https://github.com/Amer-1991/smartparent",
+  },
+  {
+    name: "بيوتي إم",
+    description:
+      "منصة إدارة وحجز صالونات التجميل متكاملة مع واجهة Laravel وتطبيق Flutter للجوال وتكامل Firebase.",
+    tags: [
+      { name: "laravel", color: "pink-text-gradient" },
+      { name: "flutter", color: "pink-text-gradient" },
+      { name: "firebase", color: "green-text-gradient" },
+    ],
+    image: jobit,
+    sourceCodeLink: "https://github.com/Amer-1991/beautyM",
+  },
+  {
+    name: "تحليل المسح الذكي",
+    description:
+      "تطبيق مسح وتحليل المستندات بالذكاء الاصطناعي مع استخراج النصوص وتصور البيانات وتوليد تقارير PDF.",
+    tags: [
+      { name: "react", color: "blue-text-gradient" },
+      { name: "supabase", color: "green-text-gradient" },
+      { name: "ai", color: "pink-text-gradient" },
+    ],
+    image: tripguide,
+    sourceCodeLink: "https://github.com/Amer-1991/scan-analys-ai",
+  },
+  {
+    name: "فن فيستا السعودية",
+    description:
+      "لوحة تحليلات مالية تفاعلية للسوق السعودي مع رسوم بيانية Recharts وتصميم متجاوب بـ shadcn/ui.",
+    tags: [
+      { name: "react", color: "blue-text-gradient" },
+      { name: "typescript", color: "blue-text-gradient" },
+      { name: "tailwind", color: "pink-text-gradient" },
+    ],
+    image: carrent,
+    sourceCodeLink: "https://github.com/Amer-1991/fin-vista-ksa",
+  },
+  {
+    name: "لايت قيت",
+    description:
+      "منصة اكتشاف وجهات السفر بتصميم بصري مميز مبنية بـ Next.js 14 مع صور جذابة وأداء محسن.",
+    tags: [
+      { name: "nextjs", color: "blue-text-gradient" },
+      { name: "tailwind", color: "pink-text-gradient" },
+    ],
+    image: jobit,
+    sourceCodeLink: "https://github.com/Amer-1991/LightGate",
+  },
+  {
+    name: "زتكانة",
+    description:
+      "منصة سوق حديثة مبنية بأحدث تقنيات Next.js 16 و React 19 للسوق السعودي.",
+    tags: [
+      { name: "nextjs", color: "blue-text-gradient" },
+      { name: "typescript", color: "blue-text-gradient" },
+      { name: "tailwind", color: "pink-text-gradient" },
+    ],
+    image: tripguide,
+    sourceCodeLink: "https://github.com/Amer-1991/zatcana",
   },
 ];
 

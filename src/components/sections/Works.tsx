@@ -16,6 +16,7 @@ const ProjectCard: React.FC<{ index: number } & TProject> = ({
   tags,
   image,
   sourceCodeLink,
+  demoLink,
 }) => {
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
@@ -33,7 +34,19 @@ const ProjectCard: React.FC<{ index: number } & TProject> = ({
               alt={name}
               className="h-full w-full rounded-2xl object-cover"
             />
-            <div className="card-img_hover absolute inset-0 m-3 flex justify-end">
+            <div className="card-img_hover absolute inset-0 m-3 flex justify-end gap-2">
+              {demoLink && (
+                <div
+                  onClick={() => window.open(demoLink, "_blank")}
+                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full"
+                  style={{ background: "linear-gradient(135deg, #f59e0b, #d97706)" }}
+                  title="عرض تجريبي"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="#1a1a2e" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </div>
+              )}
               <div
                 onClick={() => window.open(sourceCodeLink, "_blank")}
                 className="black-gradient flex h-10 w-10 cursor-pointer items-center justify-center rounded-full"
