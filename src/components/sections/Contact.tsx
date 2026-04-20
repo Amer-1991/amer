@@ -44,7 +44,7 @@ ${form.message || 'سيتم كتابة الرسالة لاحقاً'}`;
     const encodedMessage = encodeURIComponent(whatsappMessage);
     
     // Create WhatsApp URL
-    const whatsappUrl = `https://wa.me/966599050500?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/966596562019?text=${encodedMessage}`;
     
     // Open WhatsApp
     window.open(whatsappUrl, '_blank');

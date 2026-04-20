@@ -11,6 +11,7 @@ import {
 } from "./components";
 import { useEffect } from "react";
 import { config } from "./constants/config";
+import WhatsAppBubble from "./components/atoms/WhatsAppBubble";
 
 const App = () => {
   useEffect(() => {
@@ -35,6 +36,7 @@ const App = () => {
           <Contact />
           <StarsCanvas />
         </div>
+        <WhatsAppBubble />
       </div>
     </BrowserRouter>
   );
