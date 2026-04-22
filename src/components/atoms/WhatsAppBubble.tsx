@@ -1,6 +1,32 @@
 const WHATSAPP_NUMBER = "966596562019";
 const DEFAULT_MESSAGE = "مرحباً عامر، أود التواصل معك بخصوص مشروع.";
 
+// Replace 'REPLACE_WITH_LABEL' with the conversion label from Google Ads
+// (Tools → Conversions → create "WhatsApp click" → copy the label after '/')
+const GOOGLE_ADS_ID = "AW-18105891921";
+const CONVERSION_LABEL = "REPLACE_WITH_LABEL"; // e.g. "abcDEF123"
+
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+const trackConversion = () => {
+  if (typeof window === "undefined" || !window.gtag) return;
+  // Google Ads conversion
+  if (CONVERSION_LABEL !== "REPLACE_WITH_LABEL") {
+    window.gtag("event", "conversion", {
+      send_to: `${GOOGLE_ADS_ID}/${CONVERSION_LABEL}`,
+    });
+  }
+  // Custom event (always fires — useful in GA4 / Ads audiences)
+  window.gtag("event", "whatsapp_click", {
+    event_category: "engagement",
+    event_label: "floating_bubble",
+  });
+};
+
 const WhatsAppBubble = () => {
   const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(DEFAULT_MESSAGE)}`;
 
@@ -10,6 +36,7 @@ const WhatsAppBubble = () => {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="تواصل عبر واتساب"
+      onClick={trackConversion}
       className="fixed bottom-6 left-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-lg transition-transform duration-200 hover:scale-110 hover:shadow-xl md:h-16 md:w-16"
       style={{ boxShadow: "0 4px 20px rgba(37, 211, 102, 0.5)" }}
     >

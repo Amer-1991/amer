@@ -45,7 +45,21 @@ ${form.message || 'سيتم كتابة الرسالة لاحقاً'}`;
     
     // Create WhatsApp URL
     const whatsappUrl = `https://wa.me/966596562019?text=${encodedMessage}`;
-    
+
+    // Fire Google Ads conversion + GA event
+    // @ts-ignore
+    if (typeof window !== "undefined" && window.gtag) {
+      // @ts-ignore
+      window.gtag("event", "conversion", {
+        send_to: "AW-18105891921/REPLACE_WITH_LABEL",
+      });
+      // @ts-ignore
+      window.gtag("event", "whatsapp_click", {
+        event_category: "engagement",
+        event_label: "contact_form",
+      });
+    }
+
     // Open WhatsApp
     window.open(whatsappUrl, '_blank');
     
