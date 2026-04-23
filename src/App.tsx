@@ -1,17 +1,17 @@
-import { BrowserRouter } from "react-router-dom";
+import { useEffect } from "react";
 
 import {
   About,
   Contact,
+  Footer,
   Hero,
   Navbar,
+  Services,
   Tech,
   Works,
-  StarsCanvas,
 } from "./components";
-import { useEffect } from "react";
-import { config } from "./constants/config";
 import WhatsAppBubble from "./components/atoms/WhatsAppBubble";
+import { config } from "./constants/config";
 
 const App = () => {
   useEffect(() => {
@@ -21,24 +21,21 @@ const App = () => {
   }, []);
 
   return (
-    <BrowserRouter>
-      <div className="bg-primary relative z-0">
-        <div className="bg-hero-pattern bg-cover bg-center bg-no-repeat">
-          <Navbar />
-          <Hero />
-        </div>
-        <About />
-        {/* <Experience /> */}
+    <div className="relative bg-paper text-ink">
+      <Navbar />
+
+      <main>
+        <Hero />
+        <Services />
         <Tech />
         <Works />
-        {/* <Feedbacks /> */}
-        <div className="relative z-0">
-          <Contact />
-          <StarsCanvas />
-        </div>
-        <WhatsAppBubble />
-      </div>
-    </BrowserRouter>
+        <About />
+        <Contact />
+      </main>
+
+      <Footer />
+      <WhatsAppBubble />
+    </div>
   );
 };
 

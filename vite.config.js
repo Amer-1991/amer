@@ -1,8 +1,11 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// https://vitejs.dev/config/
+// Cloudflare Pages serves at root; no base path needed.
 export default defineConfig({
   plugins: [react()],
-  base: "/amer/",
+  build: {
+    target: "es2020",
+    cssCodeSplit: true,
+  },
 });

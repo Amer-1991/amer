@@ -32,375 +32,162 @@ import {
   jobit,
   tripguide,
   threejs,
-  amerProfile,
 } from "../assets";
 
 export const navLinks: TNavLink[] = [
-  {
-    id: "about",
-    title: "حول",
-  },
-  {
-    id: "work",
-    title: "أعمال",
-  },
-  {
-    id: "contact",
-    title: "اتصال",
-  },
+  { id: "services", title: "الخدمات" },
+  { id: "work", title: "أعمالنا" },
+  { id: "about", title: "عن الاستوديو" },
+  { id: "contact", title: "تواصل" },
 ];
 
 const services: TService[] = [
-  {
-    title: "مطور ويب",
-    icon: web,
-  },
-  {
-    title: "مطور React Native",
-    icon: mobile,
-  },
-  {
-    title: "مطور back-end",
-    icon: backend,
-  },
-  {
-    title: "مطور AR/VR",
-    icon: creator,
-  },
-  {
-    title: "مطور ألعاب Unreal Engine",
-    icon: web,
-  },
-  {
-    title: "مصمم 3D Blender",
-    icon: mobile,
-  },
+  { title: "مواقع وتطبيقات ويب", icon: web },
+  { title: "تطبيقات الجوال", icon: mobile },
+  { title: "تجارب AR / VR و 3D", icon: creator },
+  { title: "ألعاب Unreal Engine", icon: backend },
 ];
 
 const technologies: TTechnology[] = [
-  {
-    name: "HTML 5",
-    icon: html,
-  },
-  {
-    name: "CSS 3",
-    icon: css,
-  },
-  {
-    name: "JavaScript",
-    icon: javascript,
-  },
-  {
-    name: "TypeScript",
-    icon: typescript,
-  },
-  {
-    name: "React JS",
-    icon: reactjs,
-  },
-  {
-    name: "Redux Toolkit",
-    icon: redux,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: tailwind,
-  },
-  {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-  {
-    name: "Three JS",
-    icon: threejs,
-  },
-  {
-    name: "git",
-    icon: git,
-  },
-  {
-    name: "figma",
-    icon: figma,
-  },
-  {
-    name: "docker",
-    icon: docker,
-  },
-  {
-    name: "Unreal Engine",
-    icon: threejs, // Using threejs icon as placeholder
-  },
-  {
-    name: "Blender",
-    icon: figma, // Using figma icon as placeholder
-  },
-  {
-    name: "AR/VR",
-    icon: reactjs, // Using reactjs icon as placeholder
-  },
+  { name: "TypeScript", icon: typescript },
+  { name: "React", icon: reactjs },
+  { name: "Next.js", icon: redux },
+  { name: "Node.js", icon: nodejs },
+  { name: "Tailwind", icon: tailwind },
+  { name: "Three.js", icon: threejs },
+  { name: "MongoDB", icon: mongodb },
+  { name: "HTML 5", icon: html },
+  { name: "CSS 3", icon: css },
+  { name: "JavaScript", icon: javascript },
+  { name: "Figma", icon: figma },
+  { name: "Docker", icon: docker },
+  { name: "Git", icon: git },
 ];
 
 const experiences: TExperience[] = [
   {
-    title: "مطور AR/VR",
-    companyName: "شركة تقنية متقدمة",
+    title: "تجارب AR/VR تفاعلية",
+    companyName: "Nuqta Studio",
     icon: starbucks,
-    iconBg: "#383E56",
-    date: "مارس 2020 - أبريل 2021",
+    iconBg: "#EDE9FE",
+    date: "2020 — الآن",
     points: [
-      "تطوير تطبيقات الواقع المعزز والافتراضي باستخدام أحدث التقنيات.",
-      "إنشاء تجارب تفاعلية غامرة للمستخدمين في بيئات AR/VR.",
-      "العمل مع أجهزة VR مثل Oculus و HTC Vive.",
-      "تحسين الأداء وضمان تجربة مستخدم سلسة في بيئات الواقع الافتراضي.",
+      "بناء تجارب واقع معزز/افتراضي باستخدام Unity وWebXR.",
+      "دمج AR في تطبيقات الويب والموبايل عبر Three.js.",
+      "تحسين الأداء على أجهزة Oculus وVive.",
     ],
   },
   {
-    title: "مطور ألعاب Unreal Engine",
-    companyName: "استوديو ألعاب",
+    title: "ألعاب ثلاثية الأبعاد — Unreal Engine",
+    companyName: "Nuqta Studio",
     icon: tesla,
-    iconBg: "#E6DEDD",
-    date: "يناير 2021 - فبراير 2022",
+    iconBg: "#F5F3FF",
+    date: "2021 — الآن",
     points: [
-      "تطوير ألعاب ثلاثية الأبعاد باستخدام Unreal Engine 5.",
-      "برمجة ميكانيكا اللعب وأنظمة التفاعل المعقدة.",
-      "تحسين الأداء والرسومات للعبة.",
-      "العمل مع فريق فني لدمج الأصول والرسومات.",
+      "تطوير ألعاب 3D باستخدام Unreal Engine 5.",
+      "برمجة ميكانيكا اللعب وأنظمة التفاعل.",
+      "تحسين الأداء والرسومات والإضاءة.",
     ],
   },
   {
-    title: "مصمم 3D Blender",
-    companyName: "استوديو تصميم",
+    title: "تصميم 3D — Blender",
+    companyName: "Nuqta Studio",
     icon: shopify,
-    iconBg: "#383E56",
-    date: "يناير 2022 - يناير 2023",
+    iconBg: "#EDE9FE",
+    date: "2022 — الآن",
     points: [
-      "إنشاء نماذج ثلاثية الأبعاد عالية الجودة باستخدام Blender.",
-      "تصميم الشخصيات والبيئات للألعاب والتطبيقات.",
-      "إنتاج رسوم متحركة وحركات واقعية.",
-      "العمل مع محركات الألعاب لتصدير النماذج والرسوم المتحركة.",
+      "نمذجة ثلاثية الأبعاد عالية الجودة.",
+      "تصميم شخصيات وبيئات للألعاب والويب.",
+      "رسوم متحركة واقعية لسلاسل المنتجات.",
     ],
   },
   {
-    title: "مطور Full Stack & 3D",
-    companyName: "شركة تقنية متقدمة",
+    title: "منصات Full-Stack",
+    companyName: "Nuqta Studio",
     icon: meta,
-    iconBg: "#E6DEDD",
-    date: "يناير 2023 - الحالي",
+    iconBg: "#F5F3FF",
+    date: "2023 — الآن",
     points: [
-      "تطوير تطبيقات ويب كاملة مع دمج تقنيات ثلاثية الأبعاد.",
-      "دمج AR/VR مع تطبيقات الويب الحديثة.",
-      "إنشاء تجارب تفاعلية غامرة باستخدام Three.js و WebXR.",
-      "قيادة مشاريع تقنية معقدة تجمع بين الويب والواقع الافتراضي.",
+      "بناء تطبيقات ويب كاملة بـ React وNode.js.",
+      "دمج أنظمة الدفع والمصادقة وإدارة المستخدمين.",
+      "قيادة مشاريع تقنية معقدة من الفكرة إلى الإطلاق.",
     ],
   },
 ];
 
-const testimonials: TTestimonial[] = [
-  {
-    testimonial:
-      "اعتقدت أنه من المستحيل إنشاء موقع ويب جميل مثل منتجنا، لكن عامر أثبت لي خطأي.",
-    name: "سارة أحمد",
-    designation: "مديرة مالية",
-    company: "شركة التقنية المتقدمة",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
-  },
-  {
-    testimonial:
-      "لم أقابل مطور ويب يهتم حقاً بنجاح عملائه مثل عامر.",
-    name: "كريم محمد",
-    designation: "مدير العمليات",
-    company: "شركة الحلول الرقمية",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
-  },
-  {
-    testimonial:
-      "بعد أن حسّن عامر موقعنا، زادت حركة المرور بنسبة 50%. لا نستطيع شكره بما فيه الكفاية!",
-    name: "فاطمة علي",
-    designation: "مديرة التسويق",
-    company: "شركة الإبداع",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
-  },
-];
+// Testimonials empty until real client permissions are collected.
+const testimonials: TTestimonial[] = [];
 
 const projects: TProject[] = [
   {
-    name: "هلا AI - المساعد الصوتي",
+    name: "منصة هلا AI",
     description:
-      "منصة مساعد ذكاء اصطناعي متعددة المستأجرين مع صوت مباشر عبر LiveKit وتكامل Groq/OpenAI ودعم أدوات التجارة الإلكترونية لسلة وزد.",
+      "مساعد ذكاء اصطناعي متعدد المستأجرين مع صوت مباشر، تكامل Groq/OpenAI ودعم منصات التجارة (سلة، زد).",
     tags: [
-      { name: "python", color: "blue-text-gradient" },
-      { name: "fastapi", color: "green-text-gradient" },
-      { name: "ai", color: "pink-text-gradient" },
+      { name: "Python", color: "text-purple-700" },
+      { name: "FastAPI", color: "text-purple-600" },
+      { name: "AI", color: "text-purple-500" },
     ],
     image: carrent,
-    sourceCodeLink: "https://github.com/Amer-1991/HALAAI",
+    sourceCodeLink: "https://nuqta.dev/#contact",
   },
   {
-    name: "هلا AI - موقع الشركة",
+    name: "هلا AI — الموقع التعريفي",
     description:
-      "صفحة تعريفية احترافية لشركة هلا AI، تعرض أربعة منتجات ذكاء اصطناعي للتجارة الإلكترونية والتعليم والأسرة والفرق التقنية.",
+      "صفحة تعريفية لمنتجات ذكاء اصطناعي في التجارة الإلكترونية والتعليم — تصميم وتطوير.",
     tags: [
-      { name: "react", color: "blue-text-gradient" },
-      { name: "tailwind", color: "pink-text-gradient" },
+      { name: "React", color: "text-purple-700" },
+      { name: "Tailwind", color: "text-purple-600" },
     ],
     image: jobit,
-    sourceCodeLink: "https://github.com/Amer-1991/HalaiMainCompany",
+    sourceCodeLink: "https://nuqta.dev/#contact",
   },
   {
-    name: "توكن فاينانس",
+    name: "Token Finance",
     description:
-      "منصة تمويل بلوكتشين متكاملة مع خادم NestJS وواجهة Next.js وعقود Solidity الذكية، تشمل إدارة التوكنات وتتبع المحافظ.",
+      "منصة تمويل بلوكتشين: NestJS + Next.js + Solidity. إدارة توكنات، محافظ، وعقود ذكية.",
     tags: [
-      { name: "nestjs", color: "blue-text-gradient" },
-      { name: "solidity", color: "pink-text-gradient" },
-      { name: "prisma", color: "green-text-gradient" },
+      { name: "NestJS", color: "text-purple-700" },
+      { name: "Solidity", color: "text-purple-600" },
+      { name: "Prisma", color: "text-purple-500" },
     ],
     image: tripguide,
-    sourceCodeLink: "https://github.com/Amer-1991/tokenfinance",
+    sourceCodeLink: "https://nuqta.dev/#contact",
   },
   {
-    name: "تريد كلون",
+    name: "TradeClone",
     description:
-      "منصة تداول اجتماعي متكاملة مع نسخ الصفقات وإدارة المحافظ وبيانات السوق الحية وتتبع الأرباح والخسائر.",
+      "منصة تداول اجتماعي: نسخ الصفقات، محافظ، بيانات السوق الحية، وتتبّع الأرباح.",
     tags: [
-      { name: "nextjs", color: "blue-text-gradient" },
-      { name: "prisma", color: "green-text-gradient" },
+      { name: "Next.js", color: "text-purple-700" },
+      { name: "Prisma", color: "text-purple-600" },
     ],
     image: carrent,
-    sourceCodeLink: "https://github.com/Amer-1991/tradeclone",
+    sourceCodeLink: "https://nuqta.dev/#contact",
   },
   {
-    name: "مقاول",
+    name: "مقاول — منصة مناقصات",
     description:
-      "منصة إدارة المقاولين والمناقصات مبنية بـ Next.js 15 وtRPC وPrisma، تشمل نشر المناقصات وإدارة العطاءات لقطاع البناء السعودي.",
+      "Next.js 15 + tRPC + Prisma — نشر المناقصات وإدارة العطاءات لقطاع البناء السعودي.",
     tags: [
-      { name: "nextjs", color: "blue-text-gradient" },
-      { name: "prisma", color: "green-text-gradient" },
+      { name: "Next.js", color: "text-purple-700" },
+      { name: "tRPC", color: "text-purple-600" },
+      { name: "Prisma", color: "text-purple-500" },
     ],
     image: jobit,
-    sourceCodeLink: "https://github.com/Amer-1991/muqawil",
+    sourceCodeLink: "https://nuqta.dev/#contact",
   },
   {
-    name: "فكرة تحليل سعودي",
+    name: "تجربة AR تفاعلية",
     description:
-      "منصة تحليل جدوى المشاريع بالذكاء الاصطناعي لرواد الأعمال السعوديين، تنتج تقارير SWOT وتوقعات مالية مع تكامل ميسّر ومنشآت.",
+      "تجربة واقع معزّز داخل المتصفح عبر Three.js وWebXR — عرض منتجات بصيغة تفاعلية.",
     tags: [
-      { name: "react", color: "blue-text-gradient" },
-      { name: "supabase", color: "green-text-gradient" },
-      { name: "ai", color: "pink-text-gradient" },
+      { name: "Three.js", color: "text-purple-700" },
+      { name: "WebXR", color: "text-purple-600" },
     ],
     image: tripguide,
-    sourceCodeLink: "https://github.com/Amer-1991/fikra-tahleel-saudi",
-  },
-  {
-    name: "رفيق التعلم السعودي",
-    description:
-      "منصة تعلم المنهج السعودي بالذكاء الاصطناعي مع تدريس ذكي وتوليد الدروس والنطق ومتابعة التقدم.",
-    tags: [
-      { name: "react", color: "blue-text-gradient" },
-      { name: "nodejs", color: "green-text-gradient" },
-      { name: "ai", color: "pink-text-gradient" },
-    ],
-    image: carrent,
-    sourceCodeLink: "https://github.com/Amer-1991/saudi-learn-pal",
-  },
-  {
-    name: "ديف فلو إنسايت",
-    description:
-      "منصة إنتاجية المطورين بالذكاء الاصطناعي تجمع بين تحليل الكود وتتبع أداء الفريق وتحسين سير العمل مع واجهة ثنائية اللغة.",
-    tags: [
-      { name: "nestjs", color: "blue-text-gradient" },
-      { name: "prisma", color: "green-text-gradient" },
-      { name: "ai", color: "pink-text-gradient" },
-    ],
-    image: jobit,
-    sourceCodeLink: "https://github.com/Amer-1991/devflow-insight",
-  },
-  {
-    name: "فن فيست",
-    description:
-      "منصة أتمتة ذكية تتكامل مع بحر، سوق العمل الحر السعودي، مع توليد عروض بالذكاء الاصطناعي واكتشاف المشاريع التلقائي.",
-    tags: [
-      { name: "python", color: "blue-text-gradient" },
-      { name: "fastapi", color: "green-text-gradient" },
-    ],
-    image: tripguide,
-    sourceCodeLink: "https://github.com/Amer-1991/finvest",
-  },
-  {
-    name: "الوالد الذكي",
-    description:
-      "مساعد مراقبة ذكي بالكاميرات يستخدم YOLO والتعرف على الوجوه مع نموذج Groq لتصنيف الأحداث ونصائح تربوية بالعربية.",
-    tags: [
-      { name: "python", color: "blue-text-gradient" },
-      { name: "ai", color: "pink-text-gradient" },
-    ],
-    image: carrent,
-    sourceCodeLink: "https://github.com/Amer-1991/smartparent",
-  },
-  {
-    name: "بيوتي إم",
-    description:
-      "منصة إدارة وحجز صالونات التجميل متكاملة مع واجهة Laravel وتطبيق Flutter للجوال وتكامل Firebase.",
-    tags: [
-      { name: "laravel", color: "pink-text-gradient" },
-      { name: "flutter", color: "pink-text-gradient" },
-      { name: "firebase", color: "green-text-gradient" },
-    ],
-    image: jobit,
-    sourceCodeLink: "https://github.com/Amer-1991/beautyM",
-  },
-  {
-    name: "تحليل المسح الذكي",
-    description:
-      "تطبيق مسح وتحليل المستندات بالذكاء الاصطناعي مع استخراج النصوص وتصور البيانات وتوليد تقارير PDF.",
-    tags: [
-      { name: "react", color: "blue-text-gradient" },
-      { name: "supabase", color: "green-text-gradient" },
-      { name: "ai", color: "pink-text-gradient" },
-    ],
-    image: tripguide,
-    sourceCodeLink: "https://github.com/Amer-1991/scan-analys-ai",
-  },
-  {
-    name: "فن فيستا السعودية",
-    description:
-      "لوحة تحليلات مالية تفاعلية للسوق السعودي مع رسوم بيانية Recharts وتصميم متجاوب بـ shadcn/ui.",
-    tags: [
-      { name: "react", color: "blue-text-gradient" },
-      { name: "typescript", color: "blue-text-gradient" },
-      { name: "tailwind", color: "pink-text-gradient" },
-    ],
-    image: carrent,
-    sourceCodeLink: "https://github.com/Amer-1991/fin-vista-ksa",
-  },
-  {
-    name: "لايت قيت",
-    description:
-      "منصة اكتشاف وجهات السفر بتصميم بصري مميز مبنية بـ Next.js 14 مع صور جذابة وأداء محسن.",
-    tags: [
-      { name: "nextjs", color: "blue-text-gradient" },
-      { name: "tailwind", color: "pink-text-gradient" },
-    ],
-    image: jobit,
-    sourceCodeLink: "https://github.com/Amer-1991/LightGate",
-  },
-  {
-    name: "زتكانة",
-    description:
-      "منصة سوق حديثة مبنية بأحدث تقنيات Next.js 16 و React 19 للسوق السعودي.",
-    tags: [
-      { name: "nextjs", color: "blue-text-gradient" },
-      { name: "typescript", color: "blue-text-gradient" },
-      { name: "tailwind", color: "pink-text-gradient" },
-    ],
-    image: tripguide,
-    sourceCodeLink: "https://github.com/Amer-1991/zatcana",
+    sourceCodeLink: "https://nuqta.dev/#contact",
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects, amerProfile };
+export { services, technologies, experiences, testimonials, projects };

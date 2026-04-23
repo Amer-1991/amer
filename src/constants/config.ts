@@ -16,86 +16,70 @@ type TConfig = {
   };
   contact: {
     form: {
-      name: {
-        span: string;
-        placeholder: string;
-      };
-      email: {
-        span: string;
-        placeholder: string;
-      };
-      mobile: {
-        span: string;
-        placeholder: string;
-      };
-      message: {
-        span: string;
-        placeholder: string;
-      };
+      name: { span: string; placeholder: string };
+      email: { span: string; placeholder: string };
+      mobile: { span: string; placeholder: string };
+      message: { span: string; placeholder: string };
     };
   } & TSection;
   sections: {
     about: Required<TSection>;
+    services: Required<TSection>;
+    works: Required<TSection>;
     experience: TSection;
     feedbacks: TSection;
-    works: Required<TSection>;
   };
 };
 
 export const config: TConfig = {
   html: {
-    title: "عامر الودعاني",
-    fullName: "عامر الودعاني",
-    email: "ameralwadani@mail.com",
+    title: "استوديو نقطة | Nuqta Dev Studio",
+    fullName: "Nuqta Dev Studio",
+    email: "hello@nuqta.dev",
   },
   hero: {
-    name: "عامر الودعاني",
-    p: ["مطور فول-ستاك ومؤسس تقني", "أحوّل فكرتك إلى موقع/تطبيق جاهز للإطلاق—سريع، آمن، وقابل للتوسع"],
+    name: "استوديو نقطة",
+    p: [
+      "نقطة البداية لمنتجك الرقمي.",
+      "نُحوّل الأفكار إلى مواقع وتطبيقات وتجارب تفاعلية — بسرعة، دقة، وذوق عالٍ.",
+    ],
   },
   contact: {
-    p: "تواصل معي",
-    h2: "اتصل بي.",
+    p: "تواصل",
+    h2: "جاهز لبدء مشروعك؟",
     form: {
-      name: {
-        span: "اسمك",
-        placeholder: "ما اسمك؟",
-      },
-      email: { 
-        span: "بريدك الإلكتروني (اختياري)", 
-        placeholder: "ما بريدك الإلكتروني؟" 
-      },
-      mobile: { 
-        span: "رقم هاتفك (اختياري)", 
-        placeholder: "ما رقم هاتفك؟" 
-      },
-      message: {
-        span: "رسالتك",
-        placeholder: "ماذا تريد أن تقول؟",
-      },
+      name: { span: "الاسم", placeholder: "اسمك الكامل" },
+      email: { span: "البريد الإلكتروني (اختياري)", placeholder: "name@company.com" },
+      mobile: { span: "رقم الهاتف (اختياري)", placeholder: "+966 5X XXX XXXX" },
+      message: { span: "فكرة المشروع", placeholder: "صِف فكرتك بإيجاز — نردّ خلال ساعات" },
     },
   },
   sections: {
     about: {
-      p: "مقدمة",
-      h2: "نظرة عامة.",
-      content: `أنا مطوّر برمجيات فول-ستاك ومؤسّس تقني بخبرة قوية في TypeScript وJavaScript، ومتخصّص في React وNode.js وThree.js لبناء مواقع وتطبيقات حديثة وتجارب ثلاثية الأبعاد. أعمل بسرعة وبجودة عالية، وأتعاون عن قرب مع العملاء لتحويل الأفكار إلى حلول عملية آمنة، قابلة للتوسّع وسهلة الاستخدام تحلّ مشاكل حقيقية وتحقق أثرًا ملموسًا. لنحوّل فكرتك إلى منتج جاهز للإطلاق.`,
+      p: "عن الاستوديو",
+      h2: "نقطة تبدأ منها المنتجات الكبيرة.",
+      content:
+        "استوديو نقطة (Nuqta Dev Studio) وكالة تطوير صغيرة ومركّزة. نعمل مع رواد الأعمال والشركات الناشئة على بناء منتجات رقمية نظيفة وسريعة وآمنة. نبتعد عن التعقيد الزائد، ونركّز على التسليم في الوقت، بكود قابل للصيانة وتجربة مستخدم تُلهم.",
     },
-    experience: {
-      p: "ما قمت به حتى الآن",
-      h2: "الخبرة العملية.",
-    },
-    feedbacks: {
-      p: "ماذا يقول الآخرون",
-      h2: "التوصيات.",
+    services: {
+      p: "خدماتنا",
+      h2: "ما نقدّمه.",
+      content:
+        "أربع خدمات رئيسية نغطّيها بجودة عالية — من المواقع التسويقية إلى التطبيقات والتجارب ثلاثية الأبعاد.",
     },
     works: {
-      p: "أعمالي",
-      h2: "المشاريع.",
-      content: `المشاريع التالية تعرض مهاراتي وخبرتي من خلال
-    أمثلة حقيقية من عملي. كل مشروع موصوف بإيجاز مع
-    روابط لمستودعات الكود والعروض التوضيحية المباشرة.
-    يعكس قدرتي على حل المشاكل المعقدة والعمل مع
-    تقنيات مختلفة وإدارة المشاريع بفعالية.`,
+      p: "أعمال مختارة",
+      h2: "مشاريع نفخر بها.",
+      content:
+        "عينة من أعمالنا الأخيرة في الويب والتطبيقات والتجارب ثلاثية الأبعاد. اضغط لمشاهدة التفاصيل أو تواصل معنا لمناقشة مشروعك.",
+    },
+    experience: {
+      p: "خبرتنا",
+      h2: "خلفيّة تقنيّة قوية.",
+    },
+    feedbacks: {
+      p: "آراء العملاء",
+      h2: "ما يقولون عنّا.",
     },
   },
 };

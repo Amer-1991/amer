@@ -1,5 +1,5 @@
 const WHATSAPP_NUMBER = "966596562019";
-const DEFAULT_MESSAGE = "مرحباً عامر، أود التواصل معك بخصوص مشروع.";
+const DEFAULT_MESSAGE = "مرحباً نقطة، أود التواصل معكم بخصوص مشروع.";
 
 // Replace 'REPLACE_WITH_LABEL' with the conversion label from Google Ads
 // (Tools → Conversions → create "WhatsApp click" → copy the label after '/')

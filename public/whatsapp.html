@@ -2,6 +2,13 @@
 <html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تواصل واتساب — استوديو نقطة | Nuqta Dev Studio</title>
+    <meta name="description" content="تواصل مباشرة عبر واتساب مع استوديو نقطة — وكالة تطوير برمجية." />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18105891921"></script>
     <script>
@@ -10,30 +17,28 @@
       gtag('js', new Date());
       gtag('config', 'AW-18105891921');
     </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>تواصل عبر واتساب — عامر الودعاني</title>
-    <meta name="description" content="تواصل مباشرة عبر واتساب مع عامر الودعاني — مطور ويب وتطبيقات موثّق." />
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
     <style>
       :root {
-        --bg: #050816;
-        --panel: #151030;
-        --accent: #25d366;
-        --accent-dark: #128c7e;
-        --text: #f5f5f7;
-        --muted: #aaa6c3;
+        --ink: #0A0A0F;
+        --paper: #FAFAFA;
+        --purple-500: #8B5CF6;
+        --purple-600: #7C3AED;
+        --purple-700: #6D28D9;
+        --muted: #6B7280;
+        --hairline: #E5E7EB;
       }
       * { box-sizing: border-box; margin: 0; padding: 0; }
       html, body {
         min-height: 100%;
         font-family: 'Tajawal', system-ui, sans-serif;
-        background: radial-gradient(ellipse at top, #1a1340 0%, var(--bg) 55%);
-        color: var(--text);
+        background: var(--paper);
+        color: var(--ink);
         -webkit-font-smoothing: antialiased;
+        background-image: radial-gradient(ellipse 600px 400px at 50% 0%, rgba(139, 92, 246, 0.12), transparent 70%);
       }
       body {
         display: flex;
@@ -44,95 +49,90 @@
       .card {
         width: 100%;
         max-width: 480px;
-        background: rgba(21, 16, 48, 0.85);
-        border: 1px solid rgba(255,255,255,0.08);
+        background: #FFFFFF;
+        border: 1px solid var(--hairline);
         border-radius: 24px;
-        padding: 40px 28px;
+        padding: 44px 28px;
         text-align: center;
-        backdrop-filter: blur(20px);
-        box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        box-shadow: 0 20px 60px -10px rgba(139, 92, 246, 0.18);
       }
-      .avatar {
-        width: 96px;
-        height: 96px;
+      .dot {
+        width: 88px;
+        height: 88px;
         border-radius: 50%;
         margin: 0 auto 20px;
-        object-fit: cover;
-        border: 3px solid var(--accent);
-        box-shadow: 0 0 40px rgba(37, 211, 102, 0.35);
+        background: radial-gradient(circle at 35% 30%, #C4B5FD 0%, #8B5CF6 45%, #5B21B6 100%);
+        box-shadow: 0 0 40px -5px rgba(139, 92, 246, 0.45);
       }
-      h1 {
-        font-size: 26px;
-        font-weight: 900;
-        margin-bottom: 8px;
-        letter-spacing: -0.5px;
-      }
-      .subtitle {
+      h1 { font-size: 28px; font-weight: 900; margin-bottom: 6px; letter-spacing: -0.5px; }
+      .tagline {
         color: var(--muted);
         font-size: 15px;
         font-weight: 500;
-        margin-bottom: 8px;
+        margin-bottom: 12px;
       }
-      .verified {
+      .badge {
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        background: rgba(37, 211, 102, 0.12);
-        color: var(--accent);
+        background: #F5F3FF;
+        color: var(--purple-700);
         padding: 6px 14px;
         border-radius: 999px;
         font-size: 13px;
         font-weight: 700;
         margin-bottom: 28px;
+        border: 1px solid #DDD6FE;
       }
-      .verified svg { width: 14px; height: 14px; }
+      .badge svg { width: 14px; height: 14px; }
       .cta {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 10px;
         width: 100%;
-        background: var(--accent);
+        background: var(--purple-600);
         color: #fff;
         padding: 18px 24px;
-        border-radius: 16px;
-        font-size: 18px;
+        border-radius: 999px;
+        font-size: 17px;
         font-weight: 900;
         text-decoration: none;
-        transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-        box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+        transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+        box-shadow: 0 10px 30px -5px rgba(139, 92, 246, 0.45);
       }
-      .cta:hover { transform: translateY(-2px); background: var(--accent-dark); box-shadow: 0 14px 40px rgba(37, 211, 102, 0.55); }
-      .cta svg { width: 26px; height: 26px; fill: #fff; }
-      .meta {
-        color: var(--muted);
-        font-size: 13px;
-        margin-top: 18px;
-      }
+      .cta:hover { transform: translateY(-2px); background: var(--purple-700); }
+      .cta svg { width: 22px; height: 22px; fill: #fff; }
+      .meta { color: var(--muted); font-size: 13px; margin-top: 18px; }
       .back {
         display: inline-block;
         color: var(--muted);
         text-decoration: none;
         font-size: 14px;
         margin-top: 22px;
-        border-bottom: 1px dashed rgba(170,166,195,0.5);
+        border-bottom: 1px dashed rgba(107, 114, 128, 0.5);
       }
-      .back:hover { color: var(--text); }
+      .back:hover { color: var(--ink); border-bottom-color: var(--ink); }
+      .divider {
+        height: 1px;
+        background: var(--hairline);
+        margin: 28px -28px 0;
+      }
     </style>
   </head>
   <body>
     <main class="card">
-      <img src="./apple-touch-icon.png" alt="عامر الودعاني" class="avatar" />
-      <h1>عامر الودعاني</h1>
-      <p class="subtitle">مطور ويب وتطبيقات — حلول برمجية متكاملة</p>
-      <span class="verified">
+      <div class="dot" aria-hidden="true"></div>
+      <h1>استوديو نقطة</h1>
+      <p class="tagline">Nuqta Dev Studio — نقطة البداية لمنتجك الرقمي</p>
+      <span class="badge">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.09 4.26L19 7.27l-3.5 3.41.83 4.82L12 13.27l-4.33 2.23.83-4.82L5 7.27l4.91-1.01L12 2z"/></svg>
-        مستقل موثّق
+        استوديو موثّق
       </span>
 
       <a
         class="cta"
-        href="https://wa.me/966596562019?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%B9%D8%A7%D9%85%D8%B1%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83%20%D8%A8%D8%AE%D8%B5%D9%88%D8%B5%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9."
+        href="https://wa.me/966596562019?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%86%D9%82%D8%B7%D8%A9%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D9%86%D8%A7%D9%82%D8%B4%D8%A9%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9."
         target="_blank"
         rel="noopener noreferrer"
         onclick="if(window.gtag){gtag('event','conversion',{send_to:'AW-18105891921/REPLACE_WITH_LABEL'});gtag('event','whatsapp_click',{event_category:'engagement',event_label:'interstitial_page'});}"
@@ -143,8 +143,9 @@
         ابدأ المحادثة الآن
       </a>
 
-      <p class="meta">متاح للرد خلال ساعات العمل — رد سريع عادةً</p>
-      <a class="back" href="./">العودة إلى الصفحة الرئيسية</a>
+      <p class="meta">نردّ عادة خلال ساعات العمل</p>
+      <div class="divider"></div>
+      <a class="back" href="/">العودة إلى الصفحة الرئيسية</a>
     </main>
   </body>
 </html>
