@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = "966596562019";
+const WHATSAPP_NUMBER = "966590800681";
 const DEFAULT_MESSAGE = "مرحباً نقطة، أود التواصل معكم بخصوص مشروع.";
 
 // Replace 'REPLACE_WITH_LABEL' with the conversion label from Google Ads

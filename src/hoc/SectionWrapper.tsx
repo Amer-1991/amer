@@ -5,6 +5,21 @@ interface Props {
   idName: string;
 }
 
+const sectionVariants = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring" as const,
+      stiffness: 90,
+      damping: 18,
+      when: "beforeChildren",
+      staggerChildren: 0.08,
+    },
+  },
+};
+
 const SectionWrapper = (
   Component: Props["Component"],
   idName: Props["idName"]
@@ -14,15 +29,11 @@ const SectionWrapper = (
       <motion.section
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.25 }}
+        viewport={{ once: true, amount: 0.15 }}
+        variants={sectionVariants}
         className="section-y relative z-0"
         id={idName}
       >
-        <div
-          aria-hidden
-          className="absolute left-0 right-0 top-0 -z-[1] mx-auto -mt-24 h-24"
-          style={{ scrollMarginTop: "96px" }}
-        />
         <div className="container-px">
           <Component />
         </div>

@@ -129,7 +129,7 @@ const projects: TProject[] = [
       { name: "AI", color: "text-purple-500" },
     ],
     image: carrent,
-    sourceCodeLink: "https://nuqta.dev/#contact",
+    sourceCodeLink: "https://nuqta-studio.com/#contact",
   },
   {
     name: "هلا AI — الموقع التعريفي",
@@ -140,7 +140,7 @@ const projects: TProject[] = [
       { name: "Tailwind", color: "text-purple-600" },
     ],
     image: jobit,
-    sourceCodeLink: "https://nuqta.dev/#contact",
+    sourceCodeLink: "https://nuqta-studio.com/#contact",
   },
   {
     name: "Token Finance",
@@ -152,7 +152,7 @@ const projects: TProject[] = [
       { name: "Prisma", color: "text-purple-500" },
     ],
     image: tripguide,
-    sourceCodeLink: "https://nuqta.dev/#contact",
+    sourceCodeLink: "https://nuqta-studio.com/#contact",
   },
   {
     name: "TradeClone",
@@ -163,7 +163,7 @@ const projects: TProject[] = [
       { name: "Prisma", color: "text-purple-600" },
     ],
     image: carrent,
-    sourceCodeLink: "https://nuqta.dev/#contact",
+    sourceCodeLink: "https://nuqta-studio.com/#contact",
   },
   {
     name: "مقاول — منصة مناقصات",
@@ -175,7 +175,7 @@ const projects: TProject[] = [
       { name: "Prisma", color: "text-purple-500" },
     ],
     image: jobit,
-    sourceCodeLink: "https://nuqta.dev/#contact",
+    sourceCodeLink: "https://nuqta-studio.com/#contact",
   },
   {
     name: "تجربة AR تفاعلية",
@@ -186,7 +186,7 @@ const projects: TProject[] = [
       { name: "WebXR", color: "text-purple-600" },
     ],
     image: tripguide,
-    sourceCodeLink: "https://nuqta.dev/#contact",
+    sourceCodeLink: "https://nuqta-studio.com/#contact",
   },
 ];
 

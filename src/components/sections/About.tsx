@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 
 import { amerProfile } from "../../assets";
 import { config } from "../../constants/config";
-import { experiences } from "../../constants";
 import { SectionWrapper } from "../../hoc";
 
 const About = () => {
@@ -56,47 +55,30 @@ const About = () => {
           </p>
           <p className="max-w-2xl text-lg leading-[1.8] text-muted">
             يقود الاستوديو <strong className="text-ink">عامر الودعاني</strong>{" "}
-            — مطوّر فول-ستاك بخبرة 5+ سنوات في الويب والموبايل وتجارب AR/VR
+            — مطوّر فول-ستاك بخبرة 15+ سنة في الويب والموبايل وتجارب AR/VR
             وألعاب Unreal Engine. نعمل بنموذج "فريق مركّز" بدل الوكالات الضخمة.
           </p>
         </div>
 
-        {/* Experience timeline */}
-        <div className="mt-4">
-          <h3 className="mb-6 font-ar text-xl font-black text-ink">الخبرات</h3>
-          <ol className="relative border-r-2 border-dashed border-purple-200 pr-6">
-            {experiences.map((exp, i) => (
-              <motion.li
-                key={`${exp.title}-${i}`}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="mb-8 last:mb-0"
-              >
-                <span
-                  aria-hidden
-                  className="absolute -right-[9px] mt-1.5 h-4 w-4 rounded-full border-2 border-white bg-purple-500 shadow"
-                />
-                <div className="flex flex-col gap-1">
-                  <span className="text-xs font-bold uppercase tracking-wider text-purple-600">
-                    {exp.date}
-                  </span>
-                  <h4 className="font-ar text-lg font-black text-ink">
-                    {exp.title}
-                  </h4>
-                  <ul className="mt-2 flex flex-col gap-1.5 text-[15px] leading-[1.6] text-muted">
-                    {exp.points.map((p, j) => (
-                      <li key={j} className="flex items-start gap-2">
-                        <span className="mt-2 h-1 w-1 rounded-full bg-purple-400" />
-                        <span>{p}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.li>
-            ))}
-          </ol>
+        {/* Capabilities — flat chip list, no timeline */}
+        <div className="mt-2 flex flex-wrap gap-2">
+          {[
+            "تطبيقات ويب",
+            "تطبيقات جوال",
+            "ذكاء اصطناعي",
+            "أتمتة الأعمال",
+            "لوحات تحكم",
+            "AR / VR",
+            "Unreal Engine",
+            "Blender 3D",
+          ].map((cap) => (
+            <span
+              key={cap}
+              className="inline-flex items-center rounded-full border border-hairline bg-mist px-3 py-1.5 text-sm font-bold text-ink transition-colors hover:border-purple-300 hover:text-purple-700"
+            >
+              {cap}
+            </span>
+          ))}
         </div>
       </div>
     </div>

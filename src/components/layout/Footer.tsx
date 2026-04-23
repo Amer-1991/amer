@@ -60,20 +60,20 @@ const Footer = () => {
               <li>
                 <a
                   className="text-ink hover:text-purple-700"
-                  href="mailto:hello@nuqta.dev"
+                  href="mailto:hello@nuqta-studio.com"
                 >
-                  hello@nuqta.dev
+                  hello@nuqta-studio.com
                 </a>
               </li>
               <li>
                 <a
                   className="text-ink hover:text-purple-700"
-                  href="https://wa.me/966596562019"
+                  href="https://wa.me/966590800681"
                   target="_blank"
                   rel="noopener noreferrer"
                   dir="ltr"
                 >
-                  +966 596 562 019
+                  +966 590 800 681
                 </a>
               </li>
               <li className="text-muted">المملكة العربية السعودية</li>

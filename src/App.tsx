@@ -11,6 +11,7 @@ import {
   Works,
 } from "./components";
 import WhatsAppBubble from "./components/atoms/WhatsAppBubble";
+import ScrollProgress from "./components/atoms/ScrollProgress";
 import { config } from "./constants/config";
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
 
   return (
     <div className="relative bg-paper text-ink">
+      <ScrollProgress />
       <Navbar />
 
       <main>

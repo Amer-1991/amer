@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { navLinks } from "../../constants";
 
-const WHATSAPP_HREF = "https://wa.me/966596562019?text=" + encodeURIComponent(
+const WHATSAPP_HREF = "https://wa.me/966590800681?text=" + encodeURIComponent(
   "مرحباً نقطة، أريد مناقشة مشروع."
 );
 

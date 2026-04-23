@@ -16,7 +16,22 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 html {
@@ -25,6 +40,9 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  /* Mandatory snap = aggressive enough to beat trackpad fine-grained scroll */
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 88px;
 }
 
 html,
@@ -37,7 +55,38 @@ body {
 body {
   direction: rtl;
   text-align: right;
-  overflow-x: hidden;
+  /* `clip` — prevents body from becoming a scroll container; html's snap stays active */
+  overflow-x: clip;
+}
+
+/* Each major section = a full-viewport snap target.
+   100svh = small viewport height (iOS Safari-safe; accounts for dynamic browser UI). */
+section[id] {
+  min-height: 100svh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  scroll-margin-top: 0;
+}
+
+/* Vertically center content in non-hero sections (Hero has its own flex layout) */
+section[id]:not(#top) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+footer {
+  scroll-snap-align: end;
+}
+
+/* On short screens or reduced-motion users, don't force snap */
+@media (max-height: 600px), (prefers-reduced-motion: reduce) {
+  html {
+    scroll-snap-type: none;
+  }
+  section[id] {
+    min-height: auto;
+  }
 }
 
 ::selection {

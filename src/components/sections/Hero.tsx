@@ -1,47 +1,84 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const WHATSAPP_HREF =
-  "https://wa.me/966596562019?text=" +
+  "https://wa.me/966590800681?text=" +
   encodeURIComponent("مرحباً نقطة، أريد مناقشة مشروع.");
 
 const Hero = () => {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  // Parallax: dot moves up + scales down slightly; blobs drift
+  const dotY = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
+  const dotScale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
+  const dotOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.9, 0]);
+  const blobRightX = useTransform(scrollYProgress, [0, 1], [0, -80]);
+  const blobLeftX = useTransform(scrollYProgress, [0, 1], [0, 60]);
+
   return (
     <section
+      ref={ref}
       id="top"
       className="relative flex min-h-[100svh] w-full items-center overflow-hidden pt-24 md:pt-0"
     >
-      {/* Background grid */}
       <div aria-hidden className="absolute inset-0 bg-grid-faint bg-grid opacity-[0.9]" />
-      {/* Soft radial behind content */}
       <div aria-hidden className="absolute inset-0 bg-radial-purple" />
-      {/* Animated blobs */}
-      <div
+
+      {/* Parallax blobs */}
+      <motion.div
         aria-hidden
+        style={{ x: blobRightX }}
         className="blob animate-blob-slow"
-        style={{
-          width: "520px",
-          height: "520px",
-          top: "-120px",
-          right: "-80px",
-          background: "radial-gradient(circle, #A78BFA 0%, transparent 65%)",
+        initial={{
+          width: 520,
+          height: 520,
+          top: -120,
+          right: -80,
         }}
-      />
-      <div
+      >
+        <div
+          className="h-full w-full"
+          style={{
+            background: "radial-gradient(circle, #A78BFA 0%, transparent 65%)",
+            borderRadius: "50%",
+            filter: "blur(72px)",
+          }}
+        />
+      </motion.div>
+      <motion.div
         aria-hidden
+        style={{ x: blobLeftX }}
         className="blob animate-blob-medium"
-        style={{
-          width: "420px",
-          height: "420px",
-          bottom: "-80px",
-          left: "-60px",
-          background: "radial-gradient(circle, #C4B5FD 0%, transparent 70%)",
+        initial={{
+          width: 420,
+          height: 420,
+          bottom: -80,
+          left: -60,
           opacity: 0.4,
         }}
-      />
+      >
+        <div
+          className="h-full w-full"
+          style={{
+            background: "radial-gradient(circle, #C4B5FD 0%, transparent 70%)",
+            borderRadius: "50%",
+            filter: "blur(72px)",
+          }}
+        />
+      </motion.div>
 
       <div className="container-px relative z-10 grid grid-cols-1 items-center gap-12 md:grid-cols-[1.2fr_1fr] md:gap-16">
         {/* Copy column */}
-        <div className="flex flex-col gap-7 text-right">
+        <motion.div
+          style={{ y: textY, opacity: textOpacity }}
+          className="flex flex-col gap-7 text-right"
+        >
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -50,7 +87,7 @@ const Hero = () => {
           >
             <span className="chip">
               <span className="h-1.5 w-1.5 rounded-full bg-purple-500" />
-              استوديو تطوير برمجي
+              استوديو تقني يجعل الأعمال أذكى
             </span>
           </motion.div>
 
@@ -60,15 +97,14 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="font-ar text-[44px] font-black leading-[1.05] tracking-tight text-ink xs:text-[56px] sm:text-[68px] md:text-[76px] lg:text-[88px]"
           >
-            نقطة{" "}
+            نصنع أعمالاً{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 text-purple-700">البداية</span>
+              <span className="relative z-10 text-purple-700">أذكى</span>
               <span
                 aria-hidden
                 className="absolute -inset-x-1 bottom-2 -z-0 h-3 rounded-full bg-purple-200 md:h-4"
               />
-            </span>{" "}
-            لمنتجك الرقمي
+            </span>
           </motion.h1>
 
           <motion.p
@@ -77,8 +113,8 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="max-w-xl text-lg font-medium leading-[1.7] text-muted md:text-xl"
           >
-            نحن استوديو نقطة — نبني مواقع وتطبيقات وتجارب ثلاثية الأبعاد بجودة
-            عالية وسرعة تسليم تحترم وقتك.
+            نحن استوديو نقطة — نبني منصات وتطبيقات ذكية، ونُدمج الأتمتة
+            والذكاء الاصطناعي لجعل أعمالك تعمل أسرع وأكفأ.
           </motion.p>
 
           <motion.div
@@ -113,7 +149,6 @@ const Hero = () => {
             </a>
           </motion.div>
 
-          {/* Trust mini-stats */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -121,14 +156,16 @@ const Hero = () => {
             className="mt-4 grid grid-cols-3 gap-4 border-t border-hairline pt-6 text-right md:max-w-lg"
           >
             <div>
-              <div className="font-display text-2xl font-bold text-ink md:text-3xl">15+</div>
-              <div className="text-xs text-muted md:text-sm">مشروع منفّذ</div>
+              <div className="font-display text-2xl font-bold text-ink md:text-3xl">
+                15<span className="text-purple-600">+</span>
+              </div>
+              <div className="text-xs text-muted md:text-sm">سنة خبرة</div>
             </div>
             <div>
               <div className="font-display text-2xl font-bold text-ink md:text-3xl">
-                5<span className="text-purple-600">y</span>
+                30<span className="text-purple-600">+</span>
               </div>
-              <div className="text-xs text-muted md:text-sm">خبرة تقنية</div>
+              <div className="text-xs text-muted md:text-sm">مشروع منفّذ</div>
             </div>
             <div>
               <div className="font-display text-2xl font-bold text-ink md:text-3xl">
@@ -137,10 +174,11 @@ const Hero = () => {
               <div className="text-xs text-muted md:text-sm">تخصصات</div>
             </div>
           </motion.div>
-        </div>
+        </motion.div>
 
-        {/* Dot visual column */}
+        {/* Dot visual with parallax */}
         <motion.div
+          style={{ y: dotY, scale: dotScale, opacity: dotOpacity }}
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
@@ -160,10 +198,12 @@ const Hero = () => {
             }}
           />
           {[
-            { x: "8%", y: "14%", label: "React" },
-            { x: "82%", y: "20%", label: "Next.js" },
-            { x: "86%", y: "72%", label: "Three.js" },
-            { x: "6%", y: "76%", label: "Node" },
+            { x: "6%", y: "10%", label: "مواقع" },
+            { x: "84%", y: "14%", label: "iOS / Android" },
+            { x: "88%", y: "56%", label: "SaaS" },
+            { x: "4%", y: "60%", label: "منصات" },
+            { x: "50%", y: "2%", label: "ذكاء اصطناعي" },
+            { x: "46%", y: "92%", label: "أتمتة" },
           ].map((b, i) => (
             <div
               key={i}
@@ -176,7 +216,6 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Scroll cue */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2">
         <div className="flex h-8 w-5 items-start justify-center rounded-full border-2 border-ink/30 p-1">
           <span className="h-1.5 w-1 animate-float rounded-full bg-ink/40" />
