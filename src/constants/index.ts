@@ -37,7 +37,8 @@ import {
 export const navLinks: TNavLink[] = [
   { id: "services", title: "الخدمات" },
   { id: "work", title: "أعمالنا" },
-  { id: "about", title: "عن الاستوديو" },
+  { id: "about", title: "عنّا" },
+  { id: "faq", title: "الأسئلة" },
   { id: "contact", title: "تواصل" },
 ];
 

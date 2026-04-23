@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import {
   About,
   Contact,
+  FAQ,
   Footer,
   Hero,
   Navbar,
@@ -32,6 +33,7 @@ const App = () => {
         <Tech />
         <Works />
         <About />
+        <FAQ />
         <Contact />
       </main>
 
