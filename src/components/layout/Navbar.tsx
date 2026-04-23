@@ -83,6 +83,14 @@ const Navbar = () => {
             </li>
           ))}
           <li>
+            <a
+              href="/blog/"
+              className="text-[15px] font-bold text-ink/80 transition-colors hover:text-purple-700"
+            >
+              المدونة
+            </a>
+          </li>
+          <li>
             <a href={WHATSAPP_HREF} target="_blank" rel="noopener noreferrer" className="btn-primary px-5 py-2.5 text-sm">
               ابدأ مشروعك
             </a>
