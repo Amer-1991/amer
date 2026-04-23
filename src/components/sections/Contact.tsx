@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { SectionWrapper } from "../../hoc";
 import { config } from "../../constants/config";
 
-const WHATSAPP_NUMBER = "966590800681";
+const WHATSAPP_NUMBER = "966596562019";
 const INITIAL_STATE = { name: "", email: "", mobile: "", message: "" };
 
 declare global {
@@ -91,7 +91,7 @@ const Contact = () => {
 
         <div className="mt-6 flex flex-col gap-2 text-sm text-muted">
           <div>البريد: <a className="text-ink hover:text-purple-700" href="mailto:hello@nuqta-studio.com">hello@nuqta-studio.com</a></div>
-          <div>الهاتف: <span className="text-ink" dir="ltr">+966 590 800 681</span></div>
+          <div>الهاتف: <span className="text-ink" dir="ltr">+966 596 562 019</span></div>
           <div>الموقع: <span className="text-ink">المملكة العربية السعودية</span></div>
         </div>
       </motion.div>

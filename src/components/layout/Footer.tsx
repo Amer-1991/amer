@@ -68,12 +68,12 @@ const Footer = () => {
               <li>
                 <a
                   className="text-ink hover:text-purple-700"
-                  href="https://wa.me/966590800681"
+                  href="https://wa.me/966596562019"
                   target="_blank"
                   rel="noopener noreferrer"
                   dir="ltr"
                 >
-                  +966 590 800 681
+                  +966 596 562 019
                 </a>
               </li>
               <li className="text-muted">المملكة العربية السعودية</li>

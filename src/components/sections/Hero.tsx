@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const WHATSAPP_HREF =
-  "https://wa.me/966590800681?text=" +
+  "https://wa.me/966596562019?text=" +
   encodeURIComponent("مرحباً نقطة، أريد مناقشة مشروع.");
 
 const Hero = () => {
