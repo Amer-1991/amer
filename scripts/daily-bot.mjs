@@ -257,7 +257,32 @@ async function postToMedium(article) {
 }
 
 async function postToHashnode(article) {
-  if (!process.env.HASHNODE_TOKEN || !process.env.HASHNODE_PUBLICATION_ID) return null;
+  if (!process.env.HASHNODE_TOKEN) return null;
+
+  // Auto-discover publication ID if not explicitly set
+  let pubId = process.env.HASHNODE_PUBLICATION_ID;
+  if (!pubId) {
+    const meRes = await fetch("https://gql.hashnode.com/", {
+      method: "POST",
+      headers: {
+        Authorization: process.env.HASHNODE_TOKEN,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        query: `{ me { publications(first: 1) { edges { node { id } } } } }`,
+      }),
+    });
+    const meData = await meRes.json().catch(() => ({}));
+    pubId = meData?.data?.me?.publications?.edges?.[0]?.node?.id;
+    if (!pubId) {
+      return {
+        status: 0,
+        ok: false,
+        body: "No publication found on HashNode account — create one at hashnode.com/onboard",
+      };
+    }
+  }
+
   const res = await fetch("https://gql.hashnode.com/", {
     method: "POST",
     headers: {
@@ -271,7 +296,7 @@ async function postToHashnode(article) {
           title: article.title,
           contentMarkdown: `${article.snippet}\n\n[Read the original article](${BASE_URL}/blog/${article.slug}.html)`,
           tags: article.tags.slice(0, 5).map((t) => ({ slug: t.replace(/\s+/g, "-").toLowerCase(), name: t })),
-          publicationId: process.env.HASHNODE_PUBLICATION_ID,
+          publicationId: pubId,
           originalArticleURL: `${BASE_URL}/blog/${article.slug}.html`,
         },
       },
