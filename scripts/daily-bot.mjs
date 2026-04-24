@@ -295,7 +295,12 @@ async function postToHashnode(article) {
         input: {
           title: article.title,
           contentMarkdown: `${article.snippet}\n\n[Read the original article](${BASE_URL}/blog/${article.slug}.html)`,
-          tags: article.tags.slice(0, 5).map((t) => ({ slug: t.replace(/\s+/g, "-").toLowerCase(), name: t })),
+          // HashNode requires Latin-char slugs; use English tags only
+          tags: [
+            { slug: "webdev", name: "Web Development" },
+            { slug: "programming", name: "Programming" },
+            { slug: "saudiarabia", name: "Saudi Arabia" },
+          ],
           publicationId: pubId,
           originalArticleURL: `${BASE_URL}/blog/${article.slug}.html`,
         },
