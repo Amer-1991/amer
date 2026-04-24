@@ -10,12 +10,19 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "ts:check": "tsc --noEmit",
     "indexnow": "node scripts/indexnow-submit.mjs",
-    "indexnow:all": "node scripts/indexnow-submit.mjs"
+    "indexnow:all": "node scripts/indexnow-submit.mjs",
+    "seo:fetch": "node scripts/seo-fetch.mjs",
+    "seo:analyze": "node scripts/seo-analyze.mjs",
+    "seo:report": "node scripts/seo-report.mjs",
+    "bot:daily": "node scripts/daily-bot.mjs"
   },
   "dependencies": {
     "framer-motion": "^9.0.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "optionalDependencies": {
+    "googleapis": "^144.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

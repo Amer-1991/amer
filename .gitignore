@@ -28,4 +28,9 @@ dist-ssr
 
 # env
 .env
+.env.*
+*.key.json
+seo-bot-key.json
 
+# SEO bot raw data (might contain PII; keep out of git)
+state/seo-raw/

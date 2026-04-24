@@ -1,0 +1,62 @@
+name: SEO Bot — daily data pull + content drafts
+
+on:
+  schedule:
+    # Every day at 05:00 UTC = 08:00 Riyadh time
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  seo-daily:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies (incl. googleapis)
+        run: npm ci --include=optional
+
+      - name: Fetch GSC + Bing data
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          BING_API_KEY: ${{ secrets.BING_API_KEY }}
+        run: npm run seo:fetch
+        continue-on-error: true
+
+      - name: Analyze insights
+        run: npm run seo:analyze
+        continue-on-error: true
+
+      - name: Render markdown report
+        run: npm run seo:report
+        continue-on-error: true
+
+      - name: Run daily content bot (drafts + optional auto-post)
+        env:
+          DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
+          MEDIUM_TOKEN: ${{ secrets.MEDIUM_TOKEN }}
+          MEDIUM_AUTHOR_ID: ${{ secrets.MEDIUM_AUTHOR_ID }}
+          HASHNODE_TOKEN: ${{ secrets.HASHNODE_TOKEN }}
+          HASHNODE_PUBLICATION_ID: ${{ secrets.HASHNODE_PUBLICATION_ID }}
+        run: npm run bot:daily
+
+      - name: Commit reports + drafts back to repo
+        run: |
+          git config user.email "bot@nuqta-studio.com"
+          git config user.name "Nuqta SEO Bot"
+          git add state/
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            TODAY=$(date -u +%Y-%m-%d)
+            git commit -m "chore(seo-bot): daily report + drafts ($TODAY)"
+            git push
+          fi
