@@ -1,11 +1,13 @@
 {
   "devto": [
     "website-cost-saudi-arabia",
-    "mobile-app-development-saudi"
+    "mobile-app-development-saudi",
+    "digital-transformation-vision-2030"
   ],
   "hashnode": [
     "website-cost-saudi-arabia",
-    "mobile-app-development-saudi"
+    "mobile-app-development-saudi",
+    "digital-transformation-vision-2030"
   ],
   "_note": "Records article slugs already auto-published to each platform. Bot picks the first unposted article on each run."
 }
