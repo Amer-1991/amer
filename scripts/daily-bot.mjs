@@ -12,6 +12,24 @@ const today = new Date().toISOString().slice(0, 10);
 const INSIGHTS_FILE = path.resolve(`state/seo-insights/insights-${today}.json`);
 const DRAFTS_DIR = path.resolve("state/drafts");
 const BLOG_DIR = path.resolve("public/blog");
+const HISTORY_FILE = path.resolve("state/post-history.json");
+
+async function loadHistory() {
+  try {
+    return JSON.parse(await fs.readFile(HISTORY_FILE, "utf8"));
+  } catch {
+    return { devto: [], hashnode: [] };
+  }
+}
+
+async function saveHistory(history) {
+  await fs.writeFile(HISTORY_FILE, JSON.stringify(history, null, 2) + "\n");
+}
+
+function pickNextForPlatform(history, platform) {
+  const posted = new Set(history[platform] || []);
+  return articles.find((a) => !posted.has(a.slug)) || null;
+}
 
 /**
  * Extracts article body from a blog HTML file and converts to markdown.
@@ -421,19 +439,39 @@ async function main() {
   md += `## 🐦 Twitter / X thread (7 tweets)\n\n${tw}\n\n`;
   md += `## ❓ Quora answer\n\n${quora}\n\n`;
 
-  // Extract full article body for cross-posting (avoids AutoMod thin-content flags)
-  const fullBody = await extractArticleMarkdown(article.slug);
-  if (fullBody) {
-    console.log(`   Extracted ${fullBody.split(/\s+/).length} words from blog article`);
-  } else {
-    console.log("   ⚠️  Could not extract article body — falling back to snippet");
+  // Per-platform picks (avoid re-posting articles already published to each platform)
+  const history = await loadHistory();
+  const devtoPick = pickNextForPlatform(history, "devto");
+  const hashnodePick = pickNextForPlatform(history, "hashnode");
+
+  // Extract full article bodies for both picks (may be different articles)
+  async function bodyFor(a) {
+    if (!a) return null;
+    const b = await extractArticleMarkdown(a.slug);
+    if (b) console.log(`   ${a.slug}: extracted ${b.split(/\s+/).length} words`);
+    return b;
   }
+  const devtoBody = await bodyFor(devtoPick);
+  const hashnodeBody = await bodyFor(hashnodePick);
+
+  md += `\n**Platform picks:**\n`;
+  md += `- Dev.to → ${devtoPick ? devtoPick.title : "all articles posted; skipping"}\n`;
+  md += `- HashNode → ${hashnodePick ? hashnodePick.title : "all articles posted; skipping"}\n\n`;
 
   // Attempt auto-posts
   md += `---\n\n## 🤖 Auto-post results\n\n`;
-  const devto = await postToDevTo(article, fullBody);
+  const devto = devtoPick ? await postToDevTo(devtoPick, devtoBody) : "exhausted";
   const medium = await postToMedium(article);
-  const hashnode = await postToHashnode(article, fullBody);
+  const hashnode = hashnodePick ? await postToHashnode(hashnodePick, hashnodeBody) : "exhausted";
+
+  // Record successes in history
+  if (devto && devto !== "exhausted" && devto.ok && devtoPick) {
+    history.devto = [...new Set([...(history.devto || []), devtoPick.slug])];
+  }
+  if (hashnode && hashnode !== "exhausted" && hashnode.ok && hashnodePick) {
+    history.hashnode = [...new Set([...(history.hashnode || []), hashnodePick.slug])];
+  }
+  await saveHistory(history);
 
   for (const [name, result] of [
     ["Dev.to", devto],
@@ -442,6 +480,8 @@ async function main() {
   ]) {
     if (!result) {
       md += `- **${name}:** ⏭️ skipped (no token)\n`;
+    } else if (result === "exhausted") {
+      md += `- **${name}:** 🏁 all articles posted; waiting for new content\n`;
     } else if (result.ok) {
       md += `- **${name}:** ✅ posted (HTTP ${result.status})\n`;
     } else {
