@@ -307,7 +307,34 @@ async function postToHashnode(article) {
       },
     }),
   });
-  return { status: res.status, ok: res.ok, body: await res.text().catch(() => "") };
+
+  const text = await res.text().catch(() => "");
+  // HashNode (GraphQL) returns 200 even on errors — must inspect the body
+  let body;
+  try {
+    body = JSON.parse(text);
+  } catch {
+    return { status: res.status, ok: false, body: text || "non-JSON response" };
+  }
+  if (body.errors?.length) {
+    return {
+      status: res.status,
+      ok: false,
+      body: body.errors.map((e) => e.message).join("; "),
+    };
+  }
+  if (!body.data?.publishPost?.post?.url) {
+    return {
+      status: res.status,
+      ok: false,
+      body: "no post URL in response: " + JSON.stringify(body).slice(0, 300),
+    };
+  }
+  return {
+    status: res.status,
+    ok: true,
+    body: `published: ${body.data.publishPost.post.url}`,
+  };
 }
 
 // --- Main ---
