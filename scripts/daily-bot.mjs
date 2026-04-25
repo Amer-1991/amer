@@ -11,6 +11,61 @@ import path from "node:path";
 const today = new Date().toISOString().slice(0, 10);
 const INSIGHTS_FILE = path.resolve(`state/seo-insights/insights-${today}.json`);
 const DRAFTS_DIR = path.resolve("state/drafts");
+const BLOG_DIR = path.resolve("public/blog");
+
+/**
+ * Extracts article body from a blog HTML file and converts to markdown.
+ * Uses the <article class="article-container"> ... </article> region inside
+ * .article-body. Strips HTML, preserves headings + lists + tables.
+ */
+async function extractArticleMarkdown(slug) {
+  const file = `${BLOG_DIR}/${slug}.html`;
+  let html;
+  try {
+    html = await fs.readFile(file, "utf8");
+  } catch {
+    return null;
+  }
+
+  // Get just the .article-body content
+  const m = html.match(/<div class="article-body">([\s\S]*?)<\/div>\s*<\/article>/);
+  let body = m ? m[1] : html;
+
+  // Remove unwanted blocks (CTA boxes, related sections — they don't translate)
+  body = body.replace(/<div class="cta-box">[\s\S]*?<\/div>/g, "");
+  body = body.replace(/<section class="related">[\s\S]*?<\/section>/g, "");
+
+  // Convert common tags to markdown
+  body = body
+    .replace(/<h2[^>]*>([\s\S]*?)<\/h2>/g, "\n## $1\n")
+    .replace(/<h3[^>]*>([\s\S]*?)<\/h3>/g, "\n### $1\n")
+    .replace(/<h4[^>]*>([\s\S]*?)<\/h4>/g, "\n#### $1\n")
+    .replace(/<strong>([\s\S]*?)<\/strong>/g, "**$1**")
+    .replace(/<em>([\s\S]*?)<\/em>/g, "*$1*")
+    .replace(/<a href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g, "[$2]($1)")
+    .replace(/<li>([\s\S]*?)<\/li>/g, "- $1")
+    .replace(/<\/?(ul|ol)>/g, "\n")
+    .replace(/<blockquote>([\s\S]*?)<\/blockquote>/g, "\n> $1\n")
+    .replace(/<p>/g, "\n")
+    .replace(/<\/p>/g, "\n")
+    .replace(/<br\s*\/?>/g, "\n")
+    // Strip remaining HTML
+    .replace(/<[^>]+>/g, "")
+    // Clean up whitespace
+    .replace(/\n{3,}/g, "\n\n")
+    .replace(/^\s+|\s+$/g, "");
+
+  // Decode common HTML entities
+  body = body
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'");
+
+  return body;
+}
 
 // --- Blog article catalog (kept in sync with public/blog/) ---
 const articles = [
@@ -217,8 +272,11 @@ function mediumPost(article) {
 
 // --- Optional auto-post functions (only fire if tokens present) ---
 
-async function postToDevTo(article) {
+async function postToDevTo(article, fullBody) {
   if (!process.env.DEVTO_API_KEY) return null;
+  const body =
+    fullBody ||
+    `${article.snippet}\n\n_Originally published at ${BASE_URL}/blog/${article.slug}.html_`;
   const res = await fetch("https://dev.to/api/articles", {
     method: "POST",
     headers: {
@@ -228,10 +286,10 @@ async function postToDevTo(article) {
     body: JSON.stringify({
       article: {
         title: article.title,
-        body_markdown: `${article.snippet}\n\n_Originally published at ${BASE_URL}/blog/${article.slug}.html_`,
+        body_markdown: `${body}\n\n---\n\n*هذا المقال نُشر أصلاً على [موقع استوديو نقطة](${BASE_URL}/blog/${article.slug}.html). للاستشارة المجانية: [واتساب](https://wa.me/966596562019)*`,
         published: true,
         canonical_url: `${BASE_URL}/blog/${article.slug}.html`,
-        tags: article.tags.slice(0, 4).map((t) => t.replace(/\s+/g, "").toLowerCase()),
+        tags: ["webdev", "programming", "saudiarabia", "arabic"],
       },
     }),
   });
@@ -256,7 +314,7 @@ async function postToMedium(article) {
   return { status: res.status, ok: res.ok, body: await res.text().catch(() => "") };
 }
 
-async function postToHashnode(article) {
+async function postToHashnode(article, fullBody) {
   if (!process.env.HASHNODE_TOKEN) return null;
 
   // Auto-discover publication ID if not explicitly set
@@ -294,8 +352,8 @@ async function postToHashnode(article) {
       variables: {
         input: {
           title: article.title,
-          contentMarkdown: `${article.snippet}\n\n[Read the original article](${BASE_URL}/blog/${article.slug}.html)`,
-          // HashNode requires Latin-char slugs; use English tags only
+          contentMarkdown: `${fullBody || article.snippet}\n\n---\n\n*المقال الأصلي على [استوديو نقطة](${BASE_URL}/blog/${article.slug}.html) — استشارة مجانية عبر [واتساب](https://wa.me/966596562019)*`,
+          // HashNode requires Latin-char slugs
           tags: [
             { slug: "webdev", name: "Web Development" },
             { slug: "programming", name: "Programming" },
@@ -363,11 +421,19 @@ async function main() {
   md += `## 🐦 Twitter / X thread (7 tweets)\n\n${tw}\n\n`;
   md += `## ❓ Quora answer\n\n${quora}\n\n`;
 
+  // Extract full article body for cross-posting (avoids AutoMod thin-content flags)
+  const fullBody = await extractArticleMarkdown(article.slug);
+  if (fullBody) {
+    console.log(`   Extracted ${fullBody.split(/\s+/).length} words from blog article`);
+  } else {
+    console.log("   ⚠️  Could not extract article body — falling back to snippet");
+  }
+
   // Attempt auto-posts
   md += `---\n\n## 🤖 Auto-post results\n\n`;
-  const devto = await postToDevTo(article);
+  const devto = await postToDevTo(article, fullBody);
   const medium = await postToMedium(article);
-  const hashnode = await postToHashnode(article);
+  const hashnode = await postToHashnode(article, fullBody);
 
   for (const [name, result] of [
     ["Dev.to", devto],
