@@ -1,0 +1,9 @@
+{
+  "date": "2026-05-01",
+  "google": null,
+  "bing": {
+    "source": "bing",
+    "totalQueries": 0,
+    "topQueries": []
+  }
+}
