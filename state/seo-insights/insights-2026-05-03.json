@@ -1,0 +1,24 @@
+{
+  "date": "2026-05-03",
+  "google": null,
+  "bing": {
+    "source": "bing",
+    "totalQueries": 2,
+    "topQueries": [
+      {
+        "query": "كم رسوم الويب سايد",
+        "impressions": 1,
+        "clicks": 0,
+        "avgPosition": 2,
+        "ctr": 0
+      },
+      {
+        "query": "سعر باقة النمو في زد السعودية في السنة",
+        "impressions": 1,
+        "clicks": 0,
+        "avgPosition": 4,
+        "ctr": 0
+      }
+    ]
+  }
+}
