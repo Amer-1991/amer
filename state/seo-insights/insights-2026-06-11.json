@@ -1,0 +1,59 @@
+{
+  "date": "2026-06-11",
+  "google": null,
+  "bing": {
+    "source": "bing",
+    "totalQueries": 7,
+    "topQueries": [
+      {
+        "query": "سعر باقة النمو في زد السعودية في السنة",
+        "impressions": 1,
+        "clicks": 0,
+        "avgPosition": 4,
+        "ctr": 0
+      },
+      {
+        "query": "كم رسوم الويب سايد",
+        "impressions": 1,
+        "clicks": 0,
+        "avgPosition": 2,
+        "ctr": 0
+      },
+      {
+        "query": "8 studio saudi webdevilopment",
+        "impressions": 1,
+        "clicks": 0,
+        "avgPosition": 8,
+        "ctr": 0
+      },
+      {
+        "query": "دليل تكلفة تصميم موقع إلكتروني في السعودية 2026: تحديثات الأسعار والشروط",
+        "impressions": 1,
+        "clicks": 0,
+        "avgPosition": 7,
+        "ctr": 0
+      },
+      {
+        "query": "فريق تكبر لتطوير المواقع",
+        "impressions": 1,
+        "clicks": 0,
+        "avgPosition": 3,
+        "ctr": 0
+      },
+      {
+        "query": "متوسط اسعار انشاء موقع الكتروني في السعودية",
+        "impressions": 1,
+        "clicks": 0,
+        "avgPosition": 8,
+        "ctr": 0
+      },
+      {
+        "query": "تصميم موقع الكتروني ;كم السعر",
+        "impressions": 1,
+        "clicks": 0,
+        "avgPosition": 1,
+        "ctr": 0
+      }
+    ]
+  }
+}
