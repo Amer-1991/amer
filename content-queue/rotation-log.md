@@ -21,3 +21,4 @@ The daily agent appends here after each run. Prevents repeating the same topic/p
 2026-07-30 | Medium + HashNode | Topic#14 | دمج Apple Pay ومدى في متجرك — الخطوات الكاملة
 2026-07-31 | Reddit (r/SaudiArabia) | Topic#12 | كيف توفّر 40% من تكلفة مشروعك التقني
 2026-08-01 | Saudi Yellow Pages (Directory) | Topic#8 | تطبيقات iOS / Android — React Native
+2026-08-02 | LinkedIn | Topic#16 | الفرق بين MVP ومنتج كامل — أيّهما تبدأ به؟
